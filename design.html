@@ -8,17 +8,41 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       max-width: 750px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: 0 auto;
+      padding: 2rem 1rem;
       line-height: 1.6;
       background-color: #ffffff;
       color: #111111;
     }
 
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #ffffff;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+    }
+
     h1 {
       font-size: 2.5rem;
       color: #1a2a6c;
-      margin-bottom: 0.25rem;
+      margin: 0;
+    }
+
+    nav a {
+      margin-left: 20px;
+      font-weight: 500;
+      color: #1a2a6c;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     h2 {
@@ -66,9 +90,15 @@
 </head>
 <body>
 
-  <h1>Data & Design</h1>
-
-  <p><a href="index.html">← Back to Home</a></p>
+  <header>
+    <h1>Data & Design</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="bylines.html">Bylines</a>
+      <a href="design.html">Data & Design</a>
+      <a href="awards.html">Awards</a>
+    </nav>
+  </header>
 
   <hr />
 
