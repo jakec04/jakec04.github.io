@@ -5,6 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jake Cox – Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact {
+      font-size: 1.5rem;
+      color: #1a2a6c;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .button-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-button {
+      background-color: #1a2a6c;
+      color: white;
+      border: none;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-button:hover {
+      text-decoration: underline;
+    }
+
+    .slash {
+      font-size: 1rem;
+      color: #444444;
+    }
+  </style>
 </head>
 <body>
 
@@ -47,13 +82,14 @@
   </ul>
 
   <h2>Contact</h2>
-
-  <p>
-    <strong>Email:</strong> <a href="mailto:coxja2204@gmail.com">coxja2204@gmail.com</a><br />
-    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jakercox">linkedin.com/in/jakercox</a><br />
-    <strong>Twitter:</strong> <a href="https://twitter.com/jakecoxwrites">@jakecoxwrites</a><br />
-    <strong>Resume: <a href="https://raw.githubusercontent.com/jakec04/jakec04.github.io/42c4eea61a6d3fe8c1de96acff9f7075eb03ccd3/jake_cox_resume.pdf">Download Resume</a></strong>
-  </p>
+  <div class="contact">Get in touch on</div>
+  <div class="button-row">
+    <a href="mailto:coxja2204@gmail.com" class="contact-button">email</a>
+    <span class="slash">/</span>
+    <a href="https://www.linkedin.com/in/jakercox/" class="contact-button">linkedin</a>
+    <span class="slash">/</span>
+    <a href="https://x.com/jakecoxwrites" class="contact-button">x</a>
+  </div>
 
   <footer>
     <p>© 2025 Jake Cox. All rights reserved.</p>
