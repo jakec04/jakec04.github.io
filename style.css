@@ -18,6 +18,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helv
 
 .skills-grid li.no-bullet {
   list-style: none;
-  font-weight: bold;
+  color: #1a2a6c;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 0.75rem;
 }
