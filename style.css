@@ -28,3 +28,13 @@ h1 {
   color: #1a2a6c;
   margin: 0;
 }
+.typed-cursor {
+  font-weight: 400;
+  animation: blink 1s infinite;
+  color: #1a2a6c;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
