@@ -86,15 +86,18 @@
       <p>Jake Cox. <a href="https://raw.githubusercontent.com/jakec04/jakec04.github.io/42c4eea61a6d3fe8c1de96acff9f7075eb03ccd3/jake_cox_resume.pdf">Download Resume</a></p>
     </footer>
   </div>
-  <!-- Load Typed.js library -->
+<!-- Load Typed.js library -->
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 <!-- Initialize typing animation -->
 <script>
   var typed = new Typed('#typed-name', {
     strings: ['Jake Cox'],
-    typeSpeed: 75,
-    showCursor: false
+    typeSpeed: 150,       // slower typing
+    backSpeed: 100,       // optional if using backspace later
+    showCursor: true,
+    cursorChar: '_',
+    loop: false
   });
 </script>
 </body>
