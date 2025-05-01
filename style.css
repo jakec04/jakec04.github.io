@@ -1,1 +1,17 @@
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background-color:#fff;color:#111;line-height:1.6}.container{max-width:750px;margin:0 auto;padding:2rem 1rem}header{position:sticky;top:0;background-color:#fff;z-index:1000;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:1.5rem;padding-bottom:1rem}h1{font-size:2.5rem;color:#1a2a6c;margin:0}h2{margin-top:2rem;font-size:1.6rem;color:#1a2a6c}h3{font-size:1.15rem;margin-top:1.5rem;color:#1a2a6c}a{color:#1a2a6c;text-decoration:none;font-weight:500}a:hover{text-decoration:underline}nav a{margin-left:20px}p{font-size:.95rem;color:#444;margin-top:.2rem;margin-bottom:1.2rem}p.large-text{font-size:1.25rem}ul{padding-left:1.2rem}li{margin-bottom:.5rem}hr{border:none;border-top:1px solid #ccc;margin:2rem 0}footer{text-align:center;padding:2rem 1rem;color:#1a2a6c}.footer-text{font-size:1rem;margin-bottom:1rem}.footer-text a{color:#1a2a6c;text-decoration:underline}.social-icons{display:flex;justify-content:center;gap:1rem}.social-icons img{width:36px;height:36px;transition:transform .2s}.social-icons img:hover{transform:scale(1.1)}.contact{font-size:1.5rem;color:#1a2a6c;margin-top:2rem;margin-bottom:1rem}.button-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}.contact-button{background-color:#1a2a6c;color:#fff;border:none;padding:.3rem .7rem;font-size:.95rem;border-radius:6px;text-decoration:none;font-weight:500}.contact-button:hover{text-decoration:underline}.slash{font-size:1rem;color:#444}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.skills-grid ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills-grid li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
