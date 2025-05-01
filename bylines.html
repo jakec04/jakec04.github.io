@@ -9,12 +9,8 @@
 <body>
   <div class="container">
     <header>
-      <h1>Jake Cox</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="bylines.html">Bylines</a>
-        <a href="design.html">Data & Design</a>
-      </nav>
+    <div class="container">
+  <div id="header"></div>
     </header>
 
     <hr />
@@ -54,6 +50,11 @@
     <footer>
       <p>Jake Cox. <a href="https://raw.githubusercontent.com/jakec04/jakec04.github.io/42c4eea61a6d3fe8c1de96acff9f7075eb03ccd3/jake_cox_resume.pdf">Download Resume</a></p>
     </footer>
+    <script>
+      fetch('header.html')
+        .then(res => res.text())
+        .then(html => document.getElementById('header').innerHTML = html);
+    </script>
   </div>
 </body>
 </html>
