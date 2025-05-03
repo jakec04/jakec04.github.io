@@ -38,3 +38,79 @@ h1 {
   0%, 50%, 100% { opacity: 1; }
   25%, 75% { opacity: 0; }
 }
+
+/* ==== Project Grid & Cards ==== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.card-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-embed iframe,
+.card-embed .flourish-embed,
+.card-embed > div,
+.card-embed > script {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(26, 42, 108, 0.85);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.project-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-overlay h3,
+.card-overlay p {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  width: 80%;
+  text-align: center;
+}
+
+.card-overlay h3 {
+  top: 40%;
+  font-size: 1rem;
+}
+
+.card-overlay p {
+  top: 55%;
+  font-size: 0.85rem;
+  color: #ddd;
+}
