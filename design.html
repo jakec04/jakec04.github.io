@@ -6,6 +6,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jake Cox – Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+   <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #1a2a6c;
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      transition: box-shadow 0.3s;
+    }
+
+    .project:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .project h2 {
+      font-size: 1.25rem;
+      margin: 0 0 0.5rem;
+      color: #1a2a6c;
+    }
+
+    .project p {
+      font-size: 0.95rem;
+      color: #444;
+      margin: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #111;
+        color: #eee;
+      }
+      .project {
+        background-color: #1c1c1c;
+        border-color: #333;
+      }
+      .project h2 {
+        color: #9fc3ff;
+      }
+      .project p {
+        color: #ccc;
+      }
+    }
+  </style>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   
 </head>
