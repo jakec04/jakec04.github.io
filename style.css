@@ -261,3 +261,13 @@ footer {
   border-radius: 3px;
   margin: 0 0.5rem;
 }
+
+
+
+h1, h2, h3,
+.contact-section h2,
+.skills-header,
+.award-giver {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 700;
+}
