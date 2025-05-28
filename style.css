@@ -57,7 +57,7 @@ h3 {
 a, nav a, .contact-button {
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 700;
-  text-transform: uppercase;
+  
   letter-spacing: 0.05em;
   color: #0079c2;
   text-decoration: none;
@@ -69,7 +69,7 @@ a:hover {
 
 nav a {
   margin-left: 20px;
-  color: white;
+  color: #0079c2;
 }
 
 p, li, footer, .footer-text {
@@ -192,7 +192,7 @@ footer {
 }
 
 .contact-section h2 {
-  color: #fff;
+  color: #0079c2;
   font-size: 1.6rem;
   margin: 0 0 1.25rem 0;
 }
