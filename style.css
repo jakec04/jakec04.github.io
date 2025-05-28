@@ -55,6 +55,9 @@ h3 {
 }
 
 a, nav a, .contact-button {
+  background-color: #fff;
+  color: #0079c2;
+
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 700;
   
@@ -146,6 +149,9 @@ footer {
 }
 
 .contact-button {
+  background-color: #fff;
+  color: #0079c2;
+
   background-color: #0079c2;
   color: #fff;
   border: none;
@@ -183,6 +189,10 @@ footer {
 }
 
 .contact-section {
+  background-color: #0079c2;
+  color: #fff;
+  text-align: center;
+
   background-color: #ffffff;
   color: #fff;
   padding: 2rem;
@@ -204,4 +214,50 @@ footer {
 
 .slash {
   color: #ccc;
+}
+
+
+
+.cta-blue-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.cta-blue-line ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.cta-stop {
+  display: inline-block;
+  background-color: #0079c2; /* CTA Blue Line */
+  color: #fff;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.cta-stop:hover {
+  background-color: #005a91;
+  transform: translateY(-2px);
+}
+
+.cta-connector {
+  height: 6px;
+  width: 32px;
+  background-color: #0079c2;
+  border-radius: 3px;
+  margin: 0 0.5rem;
 }
