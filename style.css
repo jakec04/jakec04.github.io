@@ -57,7 +57,7 @@ a, nav a, .contact-button {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #da291c;
+  color: #0079c2;
   text-decoration: none;
 }
 
@@ -144,7 +144,7 @@ footer {
 }
 
 .contact-button {
-  background-color: #da291c;
+  background-color: #0079c2;
   color: #fff;
   border: none;
   padding: 0.4rem 0.9rem;
@@ -154,7 +154,7 @@ footer {
 }
 
 .contact-button:hover {
-  background-color: #b32016;
+  background-color: #005a91;
 }
 
 .skills-grid {
@@ -197,7 +197,7 @@ footer {
 
 .skills-list strong {
   font-weight: 600;
-  color: #da291c;
+  color: #0079c2;
 }
 
 .slash {
