@@ -271,3 +271,13 @@ h1, h2, h3,
   font-family: "neue-haas-grotesk-display", sans-serif;
   font-weight: 700;
 }
+
+
+
+.contact-section .button-row {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
