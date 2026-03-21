@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"favicon copy.ico\" favicon.ico)",
+      "Bash(mv \"favicon copy.svg\" favicon.svg)",
+      "Bash(mv \"favicon-32x32 copy.png\" favicon-32x32.png)",
+      "Bash(mv \"favicon-192x192 copy.png\" favicon-192x192.png)",
+      "Bash(mv \"favicon-512x512 copy.png\" favicon-512x512.png)",
+      "Bash(for f:*)",
+      "Bash(do sips:*)",
+      "Bash(done)",
+      "Bash(sips -s format jpeg --resampleWidth 800 reelexampleprojest.png --out reelexampleprojest.jpg)",
+      "Bash(sips -s format jpeg --resampleWidth 400 profile.png --out profile.jpg)",
+      "Bash(ls -lhS *.jpg *.png)"
+    ]
+  }
+}
