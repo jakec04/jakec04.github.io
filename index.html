@@ -373,6 +373,20 @@
             border: 1px solid var(--border);
             flex-shrink: 0;
         }
+        .resume-download {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 8px 20px;
+            margin-top: var(--s);
+            transition: background 0.2s, color 0.2s;
+        }
+        .resume-download:hover { background: var(--text-main); color: var(--bg-canvas); }
 
         .resume-grid {
             display: grid;
@@ -958,6 +972,7 @@
                         <div class="resume-header-text">
                             <h1>Resume</h1>
                             <p>Experience, education, skills and recognition.</p>
+                            <a class="resume-download" href="jakecoxportfolio/jakecox_resume.pdf" download>Download Resume (PDF) &darr;</a>
                         </div>
                         <img class="resume-photo" src="images/profile.jpg" alt="Jake Cox">
                     </div>
