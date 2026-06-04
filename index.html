@@ -346,11 +346,15 @@
         }
 
         .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--m);
             padding-bottom: var(--m);
             margin-bottom: var(--xl);
             border-bottom: 1px solid var(--border);
-            max-width: 740px;
         }
+        .resume-header-text { max-width: 740px; }
         .resume-header h1 {
             font-size: 32px;
             font-weight: 300;
@@ -360,6 +364,14 @@
         .resume-header p {
             font-size: 14px;
             color: var(--text-sec);
+        }
+        .resume-photo {
+            width: 104px;
+            height: 104px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
         }
 
         .resume-grid {
@@ -814,6 +826,7 @@
             .home-grid { grid-template-columns: 1fr; gap: var(--l); }
             .resume-grid { grid-template-columns: 1fr; gap: var(--l); }
             .content-col, .home-wrap, .resume-wrap, .resume-header { padding-left: var(--m); padding-right: var(--m); }
+            .resume-photo { width: 84px; height: 84px; }
         }
 
         @media (max-width: 520px) {
@@ -854,7 +867,7 @@
                         <div class="hero-area">
                             <div class="meta-label">Portfolio</div>
                             <h1 class="hero-name">Jake Cox</h1>
-                           <p class="hero-text">Lisagor Award-winning journalist specializing in audience engagement, newsletter production, and news product development. I create content and refine strategy that connects reporting with readers — from email campaigns to platform strategy, data tools, and more.</p>
+                           <p class="hero-text">Lisagor Award-winning journalist specializing in audience engagement, newsletter production, and news product development. I create content and refine strategy that connects reporting with readers — from email campaigns to platform strategy, data tools and more.</p>
 <p class="hero-detail">Currently a product manager with <strong>Michigan Public</strong> via <strong>The Magpie Project</strong>. Previously on the newsletter desk at <strong>Block Club Chicago</strong> and Digital Managing Editor of <strong>The DePaulia</strong>. DePaul University, June 2026.</p>
                             <a href="mailto:coxja2204@gmail.com" class="hero-cta">Available for full-time &amp; contract work &rarr;</a>
                         </div>
@@ -942,8 +955,11 @@
             <div class="scroll-area">
                 <div class="resume-wrap">
                     <div class="resume-header">
-                        <h1>Resume</h1>
-                        <p>Experience, education, skills and recognition.</p>
+                        <div class="resume-header-text">
+                            <h1>Resume</h1>
+                            <p>Experience, education, skills and recognition.</p>
+                        </div>
+                        <img class="resume-photo" src="images/profile.jpg" alt="Jake Cox">
                     </div>
 
                     <div class="resume-grid">
@@ -980,7 +996,7 @@
                                             <li>Built a Python web scraper to extract Illinois GA witness slips, surfacing opposition patterns that powered an investigative report</li>
                                             <li>Developed an <strong>interactive news app</strong> visualizing how Illinois' per-wager sports betting tax hits bettors in an accessible way</li>
                                             <li>Packaged investigative findings for multi-platform publication and produced <strong>vertical video</strong> for Facebook, Instagram and YouTube</li>
-                                            <li>Both reports have been nominated for Chicago Headline Club Peter Lisagor Awards</li>
+                                            <li>Both reports won Chicago Headline Club Peter Lisagor Awards</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1021,9 +1037,12 @@
                                 <div class="sec-head"><h2 class="sec-title">Recognition</h2></div>
                                 <div class="awards-grid" style="grid-template-columns: 1fr;">
                                     <div class="award-block">
-                                        <div class="award-org">Peter Lisagor Award</div>
+                                        <div class="award-org">Peter Lisagor Awards</div>
                                         <ul class="award-list">
                                             <li>Deadline Writing (Small Newsroom)</li>
+                                            <li>Best Education Reporting (Student)</li>
+                                            <li>Best Politics &amp; Government Reporting (Student)</li>
+                                            <li>Best Sports Reporting (Student)</li>
                                             <li class="award-hm">Chicago Headline Club</li>
                                         </ul>
                                     </div>
