@@ -1,10 +1,45 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jake Cox</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title>Jake Cox &mdash; Audience Engagement &amp; News Product, Chicago</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta name="description" content="Jake Cox — Lisagor Award-winning journalist specializing in audience engagement, newsletter production and news product development.">
+    <link rel="canonical" href="https://jakec04.github.io/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jake Cox — Audience Engagement & News Product">
+    <meta property="og:description" content="Lisagor Award-winning journalist specializing in audience engagement, newsletter production and news product development in Chicago.">
+    <meta property="og:url" content="https://jakec04.github.io/">
+    <meta property="og:image" content="https://jakec04.github.io/images/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jake Cox — Audience Engagement & News Product">
+    <meta name="twitter:description" content="Lisagor Award-winning journalist specializing in audience engagement, newsletter production and news product development in Chicago.">
+    <meta name="twitter:image" content="https://jakec04.github.io/images/og-card.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jake Cox",
+        "jobTitle": "Audience Engagement & News Product Journalist",
+        "url": "https://jakec04.github.io/",
+        "image": "https://jakec04.github.io/images/profile.jpg",
+        "email": "mailto:coxja2204@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "DePaul University" },
+        "sameAs": [
+            "https://www.linkedin.com/in/jakercox/",
+            "https://github.com/jakec04"
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -83,6 +118,8 @@
         }
 
         .tab {
+            appearance: none;
+            border: none;
             padding: 12px 36px 10px;
             font-size: 13px;
             font-weight: 500;
@@ -110,6 +147,10 @@
             font-weight: 600;
         }
         .tab:hover:not(.active) { transform: translateY(-2px); }
+        .tab:focus-visible {
+            outline: 2px solid var(--text-main);
+            outline-offset: -4px;
+        }
 
         /* ═══════════ BODY ═══════════ */
         .app-body {
@@ -550,12 +591,24 @@
             padding: var(--s) 0;
         }
         .aud-item {
+            appearance: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: none;
+            font: inherit;
+            color: inherit;
+            border: none;
             padding: var(--s) var(--m);
             cursor: pointer;
             border-left: 3px solid transparent;
             transition: background 0.15s;
         }
         .aud-item:hover { background: rgba(0,0,0,0.03); }
+        .aud-item:focus-visible {
+            outline: 2px solid var(--text-main);
+            outline-offset: -2px;
+        }
         .aud-item.selected {
             border-left-color: var(--text-main);
             background: rgba(0,0,0,0.05);
@@ -861,10 +914,10 @@
     </div>
 
     <!-- TABS -->
-    <div class="tabs-container">
-        <div class="tab active" data-panel="home">Home</div>
-        <div class="tab" data-panel="resume">Resume</div>
-        <div class="tab" data-panel="audience">Audience</div>
+    <div class="tabs-container" role="tablist" aria-label="Site sections">
+        <button class="tab active" type="button" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true" data-panel="home">Home</button>
+        <button class="tab" type="button" role="tab" id="tab-resume" aria-controls="panel-resume" aria-selected="false" tabindex="-1" data-panel="resume">Resume</button>
+        <button class="tab" type="button" role="tab" id="tab-audience" aria-controls="panel-audience" aria-selected="false" tabindex="-1" data-panel="audience">Audience</button>
     </div>
 
     <div class="app-body">
@@ -872,7 +925,7 @@
         <!-- ══════════════════════════════════════════ -->
         <!-- HOME                                       -->
         <!-- ══════════════════════════════════════════ -->
-        <div class="panel active" id="panel-home">
+        <div class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
             <div class="scroll-area">
                 <div class="home-wrap">
 
@@ -907,26 +960,26 @@
                             <p class="featured-desc" style="margin-bottom: 1rem;">Reporting on LGBTQ+ communities, arts and culture, and spot news.</p>
                             <div class="entry">
                                 <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/06/12/the-windy-city-times-told-lgbtq-stories-when-no-one-else-would-40-years-later-theyre-still-at-it/" target="_blank">The Windy City Times Told LGBTQ+ Stories When No One Else Would. 40 Years Later, They're Still At It</a></div></div>
-                                <div class="entry-meta">Block Club</div>
+                                <div class="entry-meta">Block Club &middot; Jun 2025</div>
                             </div>
                             <div class="entry">
                                 <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/10/22/resilience-arts-fest-to-showcase-stories-from-prison-and-beyond-art-humanizes-people/" target="_blank">Resilience Arts Fest To Showcase Stories From Prison And Beyond: 'Art Humanizes People'</a></div></div>
-                                <div class="entry-meta">Block Club</div>
+                                <div class="entry-meta">Block Club &middot; Oct 2025</div>
                             </div>
                             <div class="entry">
                                 <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/07/29/queer-radical-fair-returns-celebrating-acceptance-through-fashion/" target="_blank">Queer Radical Fair Returns, Celebrating Acceptance Through Fashion</a></div></div>
-                                <div class="entry-meta">Block Club</div>
+                                <div class="entry-meta">Block Club &middot; Jul 2025</div>
                             </div>
                             <div class="entry">
                                 <div>
                                     <div class="entry-hed"><a href="https://depauliaonline.com/71546/news/campusnews/thats-not-doing-security-to-me-privately-contracted-security-guard-relocated-off-depaul-campus/" target="_blank">'That's not doing security to me': Security guard relocated off DePaul campus</a></div>
                                     <div class="entry-award">4th Place, Best News Story &mdash; ACP</div>
                                 </div>
-                                <div class="entry-meta">DePaulia</div>
+                                <div class="entry-meta">DePaulia &middot; Sep 2024</div>
                             </div>
                             <div class="entry">
                                 <div><div class="entry-hed"><a href="https://depauliaonline.com/75464/artslife/james-baldwins-enduring-legacy-on-display-at-depaul/" target="_blank">James Baldwin's enduring legacy on display at DePaul</a></div></div>
-                                <div class="entry-meta">DePaulia</div>
+                                <div class="entry-meta">DePaulia &middot; Feb 2025</div>
                             </div>
                         </div>
 
@@ -937,15 +990,15 @@
                             </div>
                             <p class="featured-desc" style="margin-bottom: 1rem;">Selected editions from Block Club's newsletter desk.</p>
                             <div class="entry">
-                                <div class="entry-hed"><a href="https://newsletter.blockclubchi.org/index.php?action=social&chash=c2ae5cb2426d96ed19a50b0b7d7c8e11.4873&s=2e057f59512c29b078e85cb2287af121" target="_blank">Proud City (Holiday Edition)</a></div>
+                                <div class="entry-hed"><a href="newsletters/proud-city-holiday-2025.html" target="_blank">Proud City (Holiday Edition, 2025)</a></div>
                                 <div class="entry-meta">Block Club</div>
                             </div>
                             <div class="entry">
-                                <div class="entry-hed"><a href="https://newsletter.blockclubchi.org/index.php?action=social&chash=5ca359ab1e9e3b9c478459944a2d9ca5.3640&s=2e057f59512c29b078e85cb2287af121" target="_blank">Proud City (June 12, 2025)</a></div>
+                                <div class="entry-hed"><a href="newsletters/proud-city-2025-06-12.html" target="_blank">Proud City (June 12, 2025)</a></div>
                                 <div class="entry-meta">Block Club</div>
                             </div>
                             <div class="entry">
-                                <div class="entry-hed"><a href="https://newsletter.blockclubchi.org/index.php?action=social&chash=0e080857e96278e6dba76ac029faf291.5072&s=b6cdda3effd935e811f12dee2802f438" target="_blank">Afternoon Digest (January 9, 2026)</a></div>
+                                <div class="entry-hed"><a href="newsletters/afternoon-digest-2026-01-09.html" target="_blank">Afternoon Digest (January 9, 2026)</a></div>
                                 <div class="entry-meta">Block Club</div>
                             </div>
                         </div>
@@ -965,14 +1018,14 @@
         <!-- ══════════════════════════════════════════ -->
         <!-- RESUME                                     -->
         <!-- ══════════════════════════════════════════ -->
-        <div class="panel" id="panel-resume">
+        <div class="panel" id="panel-resume" role="tabpanel" aria-labelledby="tab-resume">
             <div class="scroll-area">
                 <div class="resume-wrap">
                     <div class="resume-header">
                         <div class="resume-header-text">
                             <h1>Resume</h1>
                             <p>Experience, education, skills and recognition.</p>
-                            <a class="resume-download" href="jcox_resume26-2.pdf" download>Download Resume (PDF) &darr;</a>
+                            <a class="resume-download" href="jake-cox-resume.pdf" download>Download Resume (PDF) &darr;</a>
                         </div>
                         <img class="resume-photo" src="images/profile.jpg" alt="Jake Cox">
                     </div>
@@ -1149,35 +1202,35 @@
         <!-- ══════════════════════════════════════════ -->
         <!-- AUDIENCE                                   -->
         <!-- ══════════════════════════════════════════ -->
-        <div class="panel" id="panel-audience">
+        <div class="panel" id="panel-audience" role="tabpanel" aria-labelledby="tab-audience">
             <div class="aud-layout">
                 <div class="aud-sidebar">
                     <div class="aud-sidebar-head">
                         <div class="aud-sidebar-title">Audience Work</div>
                         <div class="aud-sidebar-sub">Case studies in newsletter strategy, platform distribution and audience growth.</div>
                     </div>
-                    <div class="aud-list">
-                        <div class="aud-item selected" data-aud="newsletters">
+                    <div class="aud-list" role="tablist" aria-orientation="vertical" aria-label="Case studies">
+                        <button class="aud-item selected" type="button" role="tab" id="audtab-newsletters" aria-controls="aud-newsletters" aria-selected="true" data-aud="newsletters">
                             <div class="aud-item-meta"><span>2025 &mdash; Present</span><span>Block Club</span></div>
                             <div class="aud-item-title">Newsletter Production</div>
                             <div class="aud-item-preview">25+ editions weekly, 130,000+ subscribers</div>
-                        </div>
-                        <div class="aud-item" data-aud="whatsapp">
+                        </button>
+                        <button class="aud-item" type="button" role="tab" id="audtab-whatsapp" aria-controls="aud-whatsapp" aria-selected="false" tabindex="-1" data-aud="whatsapp">
                             <div class="aud-item-meta"><span>2025</span><span>Block Club</span></div>
                             <div class="aud-item-title">WhatsApp Channel Launch</div>
                             <div class="aud-item-preview">Immigration news distribution to 3,200+ subscribers</div>
-                        </div>
-                        <div class="aud-item" data-aud="instagram">
-                            <div class="aud-item-meta"><span>2024 &mdash; 25</span><span>DePaulia</span></div>
+                        </button>
+                        <button class="aud-item" type="button" role="tab" id="audtab-instagram" aria-controls="aud-instagram" aria-selected="false" tabindex="-1" data-aud="instagram">
+                            <div class="aud-item-meta"><span>2024 &mdash; 2025</span><span>DePaulia</span></div>
                             <div class="aud-item-title">Instagram Growth</div>
                             <div class="aud-item-preview">+53% followers, 250K+ organic views</div>
-                        </div>
+                        </button>
                     </div>
                 </div>
 
                 <div class="aud-detail">
                     <!-- Newsletter Production -->
-                    <div class="aud-detail-panel active" id="aud-newsletters">
+                    <div class="aud-detail-panel active" id="aud-newsletters" role="tabpanel" aria-labelledby="audtab-newsletters">
                         <div class="aud-detail-meta">Block Club Chicago &middot; 2025 &mdash; Present</div>
                         <div class="aud-detail-title">Newsletter Production</div>
                         <div class="aud-detail-org">Newsletter Intern &middot; 25+ editions weekly &middot; 130,000+ subscribers</div>
@@ -1197,7 +1250,7 @@
                     </div>
 
                     <!-- WhatsApp -->
-                    <div class="aud-detail-panel" id="aud-whatsapp">
+                    <div class="aud-detail-panel" id="aud-whatsapp" role="tabpanel" aria-labelledby="audtab-whatsapp">
                         <div class="aud-detail-meta">Block Club Chicago &middot; 2025</div>
                         <div class="aud-detail-title">WhatsApp Channel Launch</div>
                         <div class="aud-detail-org">Immigration news distribution</div>
@@ -1224,8 +1277,8 @@
                     </div>
 
                     <!-- Instagram -->
-                    <div class="aud-detail-panel" id="aud-instagram">
-                        <div class="aud-detail-meta">The DePaulia &middot; 2024&ndash;25</div>
+                    <div class="aud-detail-panel" id="aud-instagram" role="tabpanel" aria-labelledby="audtab-instagram">
+                        <div class="aud-detail-meta">The DePaulia &middot; 2024 &mdash; 2025</div>
                         <div class="aud-detail-title">DePaulia Instagram Growth</div>
                         <div class="aud-detail-org">Social media strategy &amp; content workflow</div>
                         <div class="case-section-head">Results</div>
@@ -1264,35 +1317,79 @@
 </div>
 
 <script>
-    // Tab switching
-    const tabs = document.querySelectorAll('.tab');
+    const tabs = Array.from(document.querySelectorAll('.tab'));
     const panels = document.querySelectorAll('.panel');
+    const audItems = Array.from(document.querySelectorAll('.aud-item'));
+    const audPanels = document.querySelectorAll('.aud-detail-panel');
+
+    function selectTab(name) {
+        tabs.forEach(t => {
+            const on = t.dataset.panel === name;
+            t.classList.toggle('active', on);
+            t.setAttribute('aria-selected', on);
+            t.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
+    }
+
+    function selectAud(name) {
+        audItems.forEach(i => {
+            const on = i.dataset.aud === name;
+            i.classList.toggle('selected', on);
+            i.setAttribute('aria-selected', on);
+            i.tabIndex = on ? 0 : -1;
+        });
+        audPanels.forEach(p => p.classList.remove('active'));
+        const target = document.getElementById('aud-' + name);
+        if (target) {
+            target.classList.add('active');
+            target.style.animation = 'none';
+            target.offsetHeight;
+            target.style.animation = 'fadeUp 0.3s ease both';
+        }
+    }
+
+    // Hash routing: #home, #resume, #audience, #audience/<case-study>
+    function applyHash() {
+        const [tab, sub] = location.hash.replace(/^#/, '').split('/');
+        const name = ['home', 'resume', 'audience'].includes(tab) ? tab : 'home';
+        selectTab(name);
+        if (name === 'audience' && sub && document.getElementById('aud-' + sub)) {
+            selectAud(sub);
+        }
+    }
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            panels.forEach(p => p.classList.remove('active'));
-            document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+            selectTab(tab.dataset.panel);
+            history.replaceState(null, '', '#' + tab.dataset.panel);
         });
     });
 
-    // Audience sidebar switching
-    const audItems = document.querySelectorAll('.aud-item');
-    const audPanels = document.querySelectorAll('.aud-detail-panel');
     audItems.forEach(item => {
         item.addEventListener('click', () => {
-            audItems.forEach(i => i.classList.remove('selected'));
-            item.classList.add('selected');
-            audPanels.forEach(p => p.classList.remove('active'));
-            const target = document.getElementById('aud-' + item.dataset.aud);
-            if (target) {
-                target.classList.add('active');
-                target.style.animation = 'none';
-                target.offsetHeight;
-                target.style.animation = 'fadeUp 0.3s ease both';
-            }
+            selectAud(item.dataset.aud);
+            history.replaceState(null, '', '#audience/' + item.dataset.aud);
         });
     });
+
+    // Arrow-key navigation within each tablist
+    function addArrowNav(items, prevKey, nextKey) {
+        items.forEach((item, i) => {
+            item.addEventListener('keydown', e => {
+                const step = e.key === nextKey ? 1 : e.key === prevKey ? -1 : 0;
+                if (!step) return;
+                e.preventDefault();
+                const next = items[(i + step + items.length) % items.length];
+                next.focus();
+                next.click();
+            });
+        });
+    }
+    addArrowNav(tabs, 'ArrowLeft', 'ArrowRight');
+    addArrowNav(audItems, 'ArrowUp', 'ArrowDown');
 </script>
 </body>
 </html>

@@ -11,7 +11,24 @@
       "Bash(done)",
       "Bash(sips -s format jpeg --resampleWidth 800 reelexampleprojest.png --out reelexampleprojest.jpg)",
       "Bash(sips -s format jpeg --resampleWidth 400 profile.png --out profile.jpg)",
-      "Bash(ls -lhS *.jpg *.png)"
+      "Bash(ls -lhS *.jpg *.png)",
+      "Bash(gh api *)",
+      "Bash(python3 -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
+      "Bash(grep -oE \"\\(December|November|Holiday\\)[^<]{0,40}\" /Users/jakecox/rstudio/jakecoxportfolio/newsletters/proud-city-holiday-2025.html)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -sL -o dmsans.ttf \"https://github.com/google/fonts/raw/main/ofl/dmsans/DMSans%5Bopsz%2Cwght%5D.ttf\")",
+      "Bash(curl -sL -o plexmono.ttf \"https://github.com/google/fonts/raw/main/ofl/ibmplexmono/IBMPlexMono-Medium.ttf\")",
+      "Bash(cat)",
+      "Bash(/tmp/ogvenv/bin/python /tmp/og_card.py)",
+      "Bash(grep -oE \"\\(January|February|March|April|May|June|July|August|September|October|November|December\\) [0-9]{1,2},? 20[0-9]{2}\" /Users/jakecox/rstudio/jakecoxportfolio/newsletters/proud-city-holiday-2025.html)",
+      "Bash(git mv *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:8080/jake-cox-resume.pdf)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:8080/newsletters/proud-city-holiday-2025.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:8080/newsletters/proud-city-2025-06-12.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} \" http://localhost:8080/newsletters/afternoon-digest-2026-01-09.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8080/images/og-card.png)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Add hash routing, social meta tags, accessible tabs and newsletter archives *)"
     ]
   }
 }
