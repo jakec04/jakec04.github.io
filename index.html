@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jake Cox &mdash; News Product Manager, Chicago</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <meta name="description" content="Jake Cox — news product manager working on games, newsletters, personalization and analytics at Michigan Public. Lisagor Award-winning journalist.">
+    <meta name="description" content="Jake Cox — news product manager working on games, newsletters, personalization and analytics at Michigan Public. Lisagor Award-winning, Emmy-nominated journalist.">
     <link rel="canonical" href="https://jakec04.github.io/">
 
     <!-- Open Graph -->
@@ -29,6 +29,7 @@
         "@type": "Person",
         "name": "Jake Cox",
         "jobTitle": "News Product Manager",
+        "worksFor": { "@type": "Organization", "name": "Michigan Public", "url": "https://www.michiganpublic.org/" },
         "url": "https://jakec04.github.io/",
         "image": "https://jakec04.github.io/images/profile.jpg",
         "email": "mailto:coxja2204@gmail.com",
@@ -50,11 +51,11 @@
             --bg-tab-1: #CED7DE;
             --bg-tab-2: #94A3B0;
             --bg-warm: #E2D8CC;
-            --bg-green: #C8D5C0;
-
+            
             --text-main: #111111;
-            --text-sec: #555555;
-            --text-ter: #888888;
+            /* Darkened both so small mono labels pass WCAG AA (4.5:1) on canvas and warm cards */
+            --text-sec: #444444;
+            --text-ter: #5F5F5F;
 
             --border: #000000;
 
@@ -161,13 +162,11 @@
             position: relative;
             z-index: 5;
             overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
         }
 
         .panel { display: none; }
         .panel.active { display: flex; flex-direction: column; }
 
-        /* ═══════════ SCROLLABLE CONTENT AREA ═══════════ */
         .scroll-area {
             flex: 1;
             overflow-y: auto;
@@ -190,11 +189,9 @@
             margin-bottom: var(--m);
         }
         .sec-title {
-            font-family: var(--mono);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.005em;
         }
         .sec-count {
             font-family: var(--mono);
@@ -233,10 +230,11 @@
         }
 
         .hero-name {
-            font-size: 42px;
+            font-size: clamp(48px, 6vw, 72px);
             font-weight: 300;
-            letter-spacing: -0.03em;
-            margin-bottom: var(--s);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: var(--m);
         }
         .hero-text {
             font-size: 16px;
@@ -274,9 +272,7 @@
         }
         .featured-label {
             font-family: var(--mono);
-            font-size: 11px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            font-size: 12px;
             color: var(--text-ter);
             margin-bottom: var(--xs);
         }
@@ -340,46 +336,6 @@
             margin-top: 2px;
         }
 
-        /* Data entries */
-        .data-entry {
-            border: 1px solid var(--border);
-            border-radius: var(--radius-card);
-            padding: var(--m);
-            margin-bottom: var(--s);
-        }
-        .data-entry-stack {
-            font-family: var(--mono);
-            font-size: 11px;
-            letter-spacing: 0.04em;
-            text-transform: lowercase;
-            color: var(--text-ter);
-            margin-bottom: 6px;
-        }
-        .data-entry-name {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 6px;
-        }
-        .data-entry-desc {
-            font-size: 13px;
-            line-height: 1.6;
-            color: var(--text-sec);
-            margin-bottom: var(--s);
-        }
-        .data-entry-links {
-            display: flex;
-            gap: var(--s);
-        }
-        .data-entry-links a {
-            font-family: var(--mono);
-            font-size: 12px;
-            text-decoration: none;
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 1px;
-            transition: opacity 0.2s;
-        }
-        .data-entry-links a:hover { opacity: 0.6; }
-
         /* ═══════════ RESUME PANEL ═══════════ */
         .resume-wrap {
             padding: var(--xl) var(--l) var(--l);
@@ -396,7 +352,7 @@
             border-bottom: 1px solid var(--border);
         }
         .resume-header-text { max-width: 740px; }
-        .resume-header h1 {
+        .resume-header h2 {
             font-size: 32px;
             font-weight: 300;
             letter-spacing: -0.02em;
@@ -488,13 +444,12 @@
         /* Awards */
         .awards-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--s);
+            grid-template-columns: 1fr;
+            gap: var(--m);
         }
-        .award-block {
-            border: 1px solid var(--border);
-            border-radius: var(--radius-card);
-            padding: var(--m);
+        .award-block + .award-block {
+            padding-top: var(--m);
+            border-top: 1px solid rgba(0,0,0,0.08);
         }
         .award-org {
             font-size: 14px;
@@ -528,6 +483,12 @@
             font-weight: 500;
             margin-bottom: 4px;
         }
+        .compact-stack {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-ter);
+            font-weight: 400;
+        }
         .compact-sub {
             font-size: 13px;
             color: var(--text-sec);
@@ -537,13 +498,12 @@
         /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: var(--s);
+            grid-template-columns: 1fr 1fr;
+            column-gap: var(--m);
         }
         .skill-item {
-            padding: var(--s);
-            border: 1px solid rgba(0,0,0,0.12);
-            border-radius: var(--radius-card);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
         }
         .skill-name {
             font-size: 13px;
@@ -556,7 +516,7 @@
             line-height: 1.5;
         }
 
-        /* ═══════════ AUDIENCE PANEL ═══════════ */
+        /* ═══════════ WORK PANEL ═══════════ */
         .aud-layout {
             display: grid;
             grid-template-columns: 340px 1fr;
@@ -615,9 +575,7 @@
         }
         .aud-item-meta {
             font-family: var(--mono);
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
+            font-size: 11px;
             color: var(--text-ter);
             margin-bottom: 4px;
             display: flex;
@@ -646,9 +604,7 @@
 
         .aud-detail-meta {
             font-family: var(--mono);
-            font-size: 11px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            font-size: 12px;
             color: var(--text-ter);
             margin-bottom: var(--xs);
         }
@@ -665,19 +621,18 @@
         }
 
         .case-section-head {
-            font-family: var(--mono);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.005em;
             margin-bottom: var(--xs);
-            margin-top: var(--m);
+            margin-top: var(--l);
         }
         .case-body {
             font-size: 14px;
             line-height: 1.65;
             color: var(--text-sec);
         }
+        .case-body p + p { margin-top: var(--xs); }
         .case-list {
             list-style: none;
             padding: 0;
@@ -702,15 +657,16 @@
             gap: var(--s);
             margin-top: var(--s);
         }
+        .stat-row-single { grid-template-columns: 1fr; }
         .stat-card {
-            background: var(--bg-green);
-            border-radius: var(--radius-card);
-            padding: var(--m);
+            padding-top: var(--s);
+            border-top: 1px solid var(--border);
         }
         .stat-value {
-            font-size: 26px;
+            font-size: 44px;
             font-weight: 300;
-            letter-spacing: -0.02em;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
             display: block;
         }
         .stat-label {
@@ -721,10 +677,9 @@
         }
 
         .case-takeaway {
-            background: var(--bg-warm);
-            border-radius: var(--radius-card);
-            padding: var(--m);
-            margin-top: var(--m);
+            border-left: 2px solid var(--text-main);
+            padding: 2px 0 2px var(--s);
+            margin-top: var(--l);
             font-size: 14px;
             line-height: 1.65;
             color: var(--text-sec);
@@ -747,29 +702,19 @@
             display: block;
         }
 
-        .stat-row-single {
-            grid-template-columns: 1fr;
-        }
-
         .case-feature-link {
             display: block;
             text-decoration: none;
-            background: var(--bg-warm);
             border: 1px solid var(--border);
             border-radius: var(--radius-card);
             padding: var(--m);
             margin-top: var(--l);
             transition: transform 0.2s ease, background 0.2s ease;
         }
-        .case-feature-link:hover {
-            transform: translateY(-2px);
-            background: var(--bg-green);
-        }
+        .case-feature-link:hover { background: var(--bg-warm); }
         .case-feature-meta {
             font-family: var(--mono);
-            font-size: 11px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            font-size: 12px;
             color: var(--text-ter);
             margin-bottom: 6px;
         }
@@ -781,6 +726,11 @@
             line-height: 1.4;
         }
 
+        .case-links {
+            display: flex;
+            gap: var(--m);
+            margin-top: var(--m);
+        }
         .case-link {
             display: inline-block;
             font-family: var(--mono);
@@ -789,7 +739,6 @@
             text-decoration: none;
             color: var(--text-main);
             border-bottom: 1px solid var(--text-main);
-            margin-top: var(--m);
             transition: opacity 0.2s;
         }
         .case-link:hover { opacity: 0.6; }
@@ -797,7 +746,7 @@
         .case-recognition {
             font-size: 13px;
             color: var(--text-sec);
-            margin-top: var(--s);
+            line-height: 1.6;
         }
 
         .insta-grid {
@@ -854,9 +803,6 @@
             font-size: 11px;
             color: var(--text-ter);
         }
-        .site-footer-full .footer-links { display: flex; gap: var(--s); }
-        .site-footer-full .footer-links a { color: var(--text-ter); text-decoration: none; }
-        .site-footer-full .footer-links a:hover { color: var(--text-main); }
 
         /* ═══════════ SCROLLBAR ═══════════ */
         ::-webkit-scrollbar { width: 6px; }
@@ -869,11 +815,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .panel.active .content-col,
-        .panel.active .hero-area,
-        .panel.active .aud-sidebar,
-        .panel.active .aud-detail { animation: fadeUp 0.35s ease both; }
-        .panel.active .aud-detail { animation-delay: 0.06s; }
+        .panel.active { animation: fadeUp 0.3s ease both; }
 
         @media (prefers-reduced-motion: reduce) {
             * { animation: none !important; transition: none !important; }
@@ -886,12 +828,28 @@
             .aud-sidebar {
                 border-right: none;
                 border-bottom: 1px solid var(--border);
-                max-height: 260px;
             }
+            .aud-sidebar-head { padding: var(--m) var(--m) var(--s); border-bottom: none; }
+            .aud-list {
+                display: flex;
+                overflow-x: auto;
+                padding: 0 var(--s);
+                scrollbar-width: none;
+            }
+            .aud-list::-webkit-scrollbar { display: none; }
+            .aud-item {
+                flex: 0 0 auto;
+                width: auto;
+                padding: var(--s) var(--xs) 12px;
+                margin-right: var(--s);
+                border-left: none;
+                border-bottom: 2px solid transparent;
+            }
+            .aud-item.selected { border-bottom-color: var(--text-main); background: none; }
+            .aud-item-meta, .aud-item-preview { display: none; }
+            .aud-item-title { margin-bottom: 0; white-space: nowrap; }
+            .aud-detail { padding: var(--l) var(--m); }
             .tab { min-width: 108px; padding: 10px 20px 8px; font-size: 11px; }
-            .hero-name { font-size: 32px; }
-            .awards-grid { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: 1fr 1fr; }
             .stat-row { grid-template-columns: 1fr; }
             .home-top { grid-template-columns: 1fr; gap: var(--l); }
             .home-grid { grid-template-columns: 1fr; gap: var(--l); }
@@ -904,6 +862,7 @@
             .skills-grid { grid-template-columns: 1fr; }
             .tabs-container { padding-left: 8px; }
             .tab { min-width: 90px; padding: 10px 14px 8px; font-size: 10px; }
+            .entry { flex-direction: column; gap: 4px; }
         }
     </style>
 </head>
@@ -933,56 +892,53 @@
             <div class="scroll-area">
                 <div class="home-wrap">
 
-                    <!-- Top row: Hero + Featured Project side by side -->
                     <div class="home-top">
                         <div class="hero-area">
-                            <div class="meta-label">Portfolio</div>
                             <h1 class="hero-name">Jake Cox</h1>
-                            <p class="hero-text">News product manager. I work on the things an audience actually touches &mdash; games, newsletters, feeds &mdash; and the measurement, email and personalization plumbing underneath them.</p>
-<p class="hero-detail">Currently a product manager with <strong>Michigan Public</strong> via <strong>The Magpie Project</strong>, working across audio and podcasts, personalization, analytics, newsletters and games. Previously on the newsletter desk at <strong>Block Club Chicago</strong> and Digital Managing Editor of <strong>The DePaulia</strong>. Four Peter Lisagor Awards for reporting along the way. Also, I graduated from DePaul University in June 2026; go Blue Demons!</p>
+                            <p class="hero-text">News product manager. I work on the things an audience touches &mdash; games, newsletters, feeds &mdash; and the measurement, email and personalization plumbing underneath them.</p>
+                            <p class="hero-detail">I'm a product manager at <strong>Michigan Public</strong> through <strong>The Magpie Project</strong>, working across audio and podcasts, personalization, analytics, newsletters and games. Before that, I sent <strong>Block Club Chicago</strong>'s newsletters to 130,000 readers and ran digital at <strong>The DePaulia</strong>. The reporting I did along the way won four Peter Lisagor Awards and earned two Chicago/Midwest Emmy nominations.</p>
                             <a href="mailto:coxja2204@gmail.com" class="hero-cta">Available for full-time &amp; contract work &rarr;</a>
                         </div>
 
                         <div>
-                            <div class="sec-head" style="margin-bottom: var(--s);"><h2 class="sec-title">Featured Project</h2></div>
+                            <div class="sec-head" style="margin-bottom: var(--s);"><h2 class="sec-title">Featured project</h2></div>
                             <div class="featured-card">
-                                <div class="featured-label">Block Club Chicago // 2025</div>
+                                <div class="featured-label">Block Club Chicago, 2025</div>
                                 <div class="featured-title">WhatsApp Channel</div>
-                                <p class="featured-desc">Launched a WhatsApp channel to deliver immigration news to the Chicago communities most affected by federal enforcement, on the platform they were already using. 3,200 subscribers in six weeks. Recognized by the Knight Foundation, Newspack and Medill.</p>
-                                <a href="https://newspack.com/reach-new-audiences-with-whatsapp/" class="featured-link" target="_blank">Read the Newspack write-up on the channel &rarr;</a>
+                                <p class="featured-desc">During Operation Midway Blitz, I launched a WhatsApp channel that put Block Club's verified immigration coverage on the app Chicago's immigrant communities already used. It grew to 3,200+ subscribers in six weeks, and the Knight Foundation, the American Journalism Project and Medill all wrote about it.</p>
+                                <a href="#work/whatsapp" class="featured-link">Read the case study</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Bottom row: Stories + Newsletters side by side -->
                     <div class="home-grid">
                         <div class="sec" style="margin-bottom: 0;">
                             <div class="sec-head">
                                 <h2 class="sec-title">Reporting</h2>
                                 <span class="sec-count">5</span>
                             </div>
-                            <p class="featured-desc" style="margin-bottom: 1rem;">I love news and I know news. A few of mine:</p>
+                            <p class="featured-desc" style="margin-bottom: 1rem;">Civic, arts and LGBTQ+ stories from Block Club and The DePaulia.</p>
                             <div class="entry">
-                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/06/12/the-windy-city-times-told-lgbtq-stories-when-no-one-else-would-40-years-later-theyre-still-at-it/" target="_blank">The Windy City Times Told LGBTQ+ Stories When No One Else Would. 40 Years Later, They're Still At It</a></div></div>
+                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/06/12/the-windy-city-times-told-lgbtq-stories-when-no-one-else-would-40-years-later-theyre-still-at-it/" target="_blank" rel="noopener">The Windy City Times Told LGBTQ+ Stories When No One Else Would. 40 Years Later, They're Still At It</a></div></div>
                                 <div class="entry-meta">Block Club &middot; Jun 2025</div>
                             </div>
                             <div class="entry">
-                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/10/22/resilience-arts-fest-to-showcase-stories-from-prison-and-beyond-art-humanizes-people/" target="_blank">Resilience Arts Fest To Showcase Stories From Prison And Beyond: 'Art Humanizes People'</a></div></div>
+                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/10/22/resilience-arts-fest-to-showcase-stories-from-prison-and-beyond-art-humanizes-people/" target="_blank" rel="noopener">Resilience Arts Fest To Showcase Stories From Prison And Beyond: 'Art Humanizes People'</a></div></div>
                                 <div class="entry-meta">Block Club &middot; Oct 2025</div>
                             </div>
                             <div class="entry">
-                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/07/29/queer-radical-fair-returns-celebrating-acceptance-through-fashion/" target="_blank">Queer Radical Fair Returns, Celebrating Acceptance Through Fashion</a></div></div>
+                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/07/29/queer-radical-fair-returns-celebrating-acceptance-through-fashion/" target="_blank" rel="noopener">Queer Radical Fair Returns, Celebrating Acceptance Through Fashion</a></div></div>
                                 <div class="entry-meta">Block Club &middot; Jul 2025</div>
                             </div>
                             <div class="entry">
                                 <div>
-                                    <div class="entry-hed"><a href="https://depauliaonline.com/71546/news/campusnews/thats-not-doing-security-to-me-privately-contracted-security-guard-relocated-off-depaul-campus/" target="_blank">'That's not doing security to me': Security guard relocated off DePaul campus</a></div>
-                                    <div class="entry-award">4th Place, Best News Story &mdash; ACP</div>
+                                    <div class="entry-hed"><a href="https://depauliaonline.com/71546/news/campusnews/thats-not-doing-security-to-me-privately-contracted-security-guard-relocated-off-depaul-campus/" target="_blank" rel="noopener">'That's not doing security to me': Security guard relocated off DePaul campus</a></div>
+                                    <div class="entry-award">ACP: 4th Place, Best News Story</div>
                                 </div>
                                 <div class="entry-meta">DePaulia &middot; Sep 2024</div>
                             </div>
                             <div class="entry">
-                                <div><div class="entry-hed"><a href="https://depauliaonline.com/75464/artslife/james-baldwins-enduring-legacy-on-display-at-depaul/" target="_blank">James Baldwin's enduring legacy on display at DePaul</a></div></div>
+                                <div><div class="entry-hed"><a href="https://depauliaonline.com/75464/artslife/james-baldwins-enduring-legacy-on-display-at-depaul/" target="_blank" rel="noopener">James Baldwin's enduring legacy on display at DePaul</a></div></div>
                                 <div class="entry-meta">DePaulia &middot; Feb 2025</div>
                             </div>
                         </div>
@@ -1027,48 +983,45 @@
                 <div class="resume-wrap">
                     <div class="resume-header">
                         <div class="resume-header-text">
-                            <h1>Resume</h1>
+                            <h2>Resume</h2>
                             <p>Experience, education, skills and recognition.</p>
                             <a class="resume-download" href="jake-cox-resume.pdf" download>Download Resume (PDF) &darr;</a>
                         </div>
-                        <img class="resume-photo" src="images/profile.jpg" alt="Jake Cox">
+                        <img class="resume-photo" src="images/profile.jpg" alt="Jake Cox" width="104" height="104">
                     </div>
 
                     <div class="resume-grid">
 
-                        <!-- LEFT COLUMN: Experience -->
+                        <!-- LEFT COLUMN -->
                         <div>
                             <div class="sec" style="margin-bottom: var(--xl);">
-                                <div class="sec-head"><h2 class="sec-title">Experience</h2></div>
+                                <div class="sec-head"><h3 class="sec-title">Experience</h3></div>
                                 <div class="detail-card">
                                     <div class="detail-card-head">
                                         <div class="detail-card-title">Product Manager</div>
                                         <div class="detail-card-meta">2026 &mdash; Present</div>
                                     </div>
                                     <div class="detail-card-org">Michigan Public / The Magpie Project &middot; Remote</div>
-                                    <div class="detail-card-body">
-                                        <ul class="detail-list">
-                                            <li>Manage product across five areas &mdash; audio, video and podcasts; personalization and recommendations; analytics; newsletters; and games</li>
-                                            <li>Own the roadmap for an unannounced <strong>game product</strong> built with an outside dev partner: scoping, launch tracking, content pipeline, QA and the call on what ships at launch versus after</li>
-                                            <li>Turn reporting and stakeholder meetings into scoped, owned work in Notion, and run the tracking that keeps launch dates honest</li>
-                                        </ul>
-                                    </div>
+                                    <ul class="detail-list">
+                                        <li>Manage product across five areas: audio, video and podcasts; personalization and recommendations; analytics; newsletters; and games</li>
+                                        <li>Own the roadmap for an unannounced <strong>game product</strong> built with an outside dev partner: scoping, launch tracking, content pipeline, QA and the call on what ships at launch versus after</li>
+                                        <li>Built newsletter and Apple News infrastructure: a redesigned Mailchimp template, production SOPs, a UTM taxonomy, and ANF article templates with custom CTAs</li>
+                                        <li>Turn reporting and stakeholder meetings into scoped, owned work in Notion, and run the tracking that keeps launch dates honest</li>
+                                    </ul>
                                 </div>
                                 <div class="detail-card">
                                     <div class="detail-card-head">
                                         <div class="detail-card-title">Newsletter Intern</div>
-                                        <div class="detail-card-meta">Apr 2025 &mdash; June 2026</div>
+                                        <div class="detail-card-meta">Apr 2025 &mdash; Jun 2026</div>
                                     </div>
                                     <div class="detail-card-org">Block Club Chicago &middot; Chicago, Ill.</div>
-                                    <div class="detail-card-body">
-                                        <ul class="detail-list">
-                                            <li>Launched and scaled a <strong>WhatsApp broadcast channel</strong> to 3,200+ subscribers in six weeks, delivering verified immigration coverage to communities most affected by federal enforcement and earning recognition from Knight Foundation, AJP, Medill and Reuters</li>
-                                            <li>Produce and publish daily newsletters to 130,000+ subscribers, making real-time story selection and placement calls against deadline</li>
-                                            <li>Analyze open rates, CTR and CTOR across daily sends to A/B test subject lines and optimize story hierarchy for engagement lift</li>
-                                            <li>Report breaking news and enterprise features across civic, arts, LGBTQ+ and weather beats for a nonprofit hyperlocal newsroom</li>
-                                            <li>Partner with editors and reporters to shape newsletter editions around shifting coverage priorities throughout the news cycle</li>
-                                        </ul>
-                                    </div>
+                                    <ul class="detail-list">
+                                        <li>Launched and grew a <strong>WhatsApp broadcast channel</strong> to 3,200+ subscribers in six weeks, delivering verified immigration coverage to communities most affected by federal enforcement; written up by the Knight Foundation, American Journalism Project and Medill, and cited by Reuters</li>
+                                        <li>Produced and published daily newsletters to 130,000+ subscribers, making real-time story selection and placement calls against deadline</li>
+                                        <li>Analyzed open rates, CTR and CTOR across daily sends to A/B test subject lines and optimize story hierarchy for engagement lift</li>
+                                        <li>Reported breaking news and enterprise features across civic, arts, LGBTQ+ and weather beats for a nonprofit hyperlocal newsroom</li>
+                                        <li>Worked with editors and reporters to rework editions as coverage priorities shifted during the day</li>
+                                    </ul>
                                 </div>
                                 <div class="detail-card">
                                     <div class="detail-card-head">
@@ -1076,15 +1029,13 @@
                                         <div class="detail-card-meta">Mar 2025 &mdash; Nov 2025</div>
                                     </div>
                                     <div class="detail-card-org">DePaul CJIE / NBC 5 Chicago &middot; Chicago, Ill.</div>
-                                    <div class="detail-card-body">
-                                        <ul class="detail-list">
-                                            <li>Led data analysis, fact-checking and structural editing on two long-form investigations produced with NBC 5 Chicago's I-Team</li>
-                                            <li>Built a Python web scraper to extract Illinois GA witness slips, surfacing opposition patterns that powered an investigative report</li>
-                                            <li>Developed an <strong>interactive news app</strong> visualizing how Illinois' per-wager sports betting tax hits bettors in an accessible way</li>
-                                            <li>Packaged investigative findings for multi-platform publication and produced <strong>vertical video</strong> for Facebook, Instagram and YouTube</li>
-                                            <li>Both reports won Chicago Headline Club Peter Lisagor Awards</li>
-                                        </ul>
-                                    </div>
+                                    <ul class="detail-list">
+                                        <li>Led data analysis, fact-checking and structural editing on two long-form investigations produced with NBC 5 Chicago's I-Team</li>
+                                        <li>Built a Python web scraper to extract Illinois GA witness slips, surfacing opposition patterns that powered an investigative report</li>
+                                        <li>Developed an <strong>interactive news app</strong> showing bettors how Illinois' per-wager sports betting tax hits them</li>
+                                        <li>Packaged investigative findings for multi-platform publication and produced <strong>vertical video</strong> for Facebook, Instagram and YouTube</li>
+                                        <li>Both reports won Chicago Headline Club Peter Lisagor Awards and earned 2026 Chicago/Midwest Emmy nominations</li>
+                                    </ul>
                                 </div>
                                 <div class="detail-card">
                                     <div class="detail-card-head">
@@ -1092,40 +1043,45 @@
                                         <div class="detail-card-meta">Mar 2024 &mdash; Oct 2025</div>
                                     </div>
                                     <div class="detail-card-org">The DePaulia &middot; Chicago, Ill.</div>
-                                    <div class="detail-card-body">
-                                        <ul class="detail-list">
-                                            <li>Drove a 53% increase in Instagram engagement and 250K+ organic views by rebuilding the social strategy around short-form video, platform-native formats and a repeatable content workflow that outlasted my tenure</li>
-                                            <li>Directed live breaking news coverage including a student encampment live blog that earned the Peter Lisagor Award for deadline reporting</li>
-                                            <li>Led a digital staff of 25 across web, social and newsletter, setting editorial priorities and coaching reporters on deadline</li>
-                                            <li>Relaunched the paper's newsletter, social and search strategy; grew newsletter subscribers to nearly 1,000</li>
-                                        </ul>
-                                    </div>
+                                    <ul class="detail-list">
+                                        <li>Grew Instagram followers 53% (+2,000) and drove 250K+ organic views by rebuilding the social strategy around short-form video, platform-native formats and a repeatable content workflow that outlasted my tenure</li>
+                                        <li>Directed live breaking news coverage, including a student encampment live blog that won the Peter Lisagor Award for deadline writing</li>
+                                        <li>Led a digital staff of 25 across web, social and newsletter, setting editorial priorities and coaching reporters on deadline</li>
+                                        <li>Relaunched the paper's newsletter, social and search strategy; grew newsletter subscribers to nearly 1,000</li>
+                                    </ul>
                                 </div>
                             </div>
 
-                            <!-- Selected Projects under Experience on left -->
                             <div class="sec" style="margin-bottom: 0;">
-                                <div class="sec-head"><h2 class="sec-title">Selected Projects</h2></div>
+                                <div class="sec-head"><h3 class="sec-title">Selected projects</h3></div>
                                 <div class="compact-entry">
-                                    <div class="compact-title">Sports Betting Tax News App <span style="font-family: var(--mono); font-size: 11px; color: var(--text-ter); font-weight: 400;">&middot; html + javascript</span></div>
-                                    <div class="compact-sub">Interactive calculator built to accompany NBC Chicago's investigation of Illinois' new per-wager sports gambling tax. <a href="https://www.nbcchicago.com/chicago-sports-bears-sox-cubs-bulls-blackhawks/illinois-quietly-increases-cost-of-online-betting-and-chicago-may-be-next/3852846/" target="_blank" style="color: var(--text-main);">Reporting</a> &middot; <a href="https://github.com/jakec04/wagering-tax-app" target="_blank" style="color: var(--text-main);">Repo</a></div>
+                                    <div class="compact-title">Sports Betting Tax News App <span class="compact-stack">&middot; html + javascript</span></div>
+                                    <div class="compact-sub">Interactive calculator built to accompany NBC Chicago's investigation of Illinois' new per-wager sports gambling tax. <a href="#work/betting">Case study</a> &middot; <a href="https://github.com/jakec04/wagering-tax-app" target="_blank" rel="noopener">Repo</a></div>
                                 </div>
                                 <div class="compact-entry">
-                                    <div class="compact-title">Illinois General Assembly Web Scraper <span style="font-family: var(--mono); font-size: 11px; color: var(--text-ter); font-weight: 400;">&middot; python + beautifulsoup</span></div>
-                                    <div class="compact-sub">Automated tool collecting public testimony data from the Illinois legislature to measure opposition to a homeschooling regulation bill. <a href="https://www.nbcchicago.com/video/top-videos-home/parents-lawmakers-battle-over-illinois-homeschool-act-what-to-know/3760572/" target="_blank" style="color: var(--text-main);">Reporting</a> &middot; <a href="https://github.com/jakec04/ILGA_scraper" target="_blank" style="color: var(--text-main);">Scraper</a></div>
+                                    <div class="compact-title">Illinois General Assembly Web Scraper <span class="compact-stack">&middot; python + beautifulsoup</span></div>
+                                    <div class="compact-sub">Automated tool collecting public testimony data from the Illinois legislature to measure opposition to a homeschooling regulation bill. The report was nominated for a 2026 Chicago/Midwest Emmy. <a href="https://www.nbcchicago.com/news/local/parents-lawmakers-battle-over-illinois-homeschool-act-what-to-know/3760545/" target="_blank" rel="noopener">Reporting</a> &middot; <a href="https://github.com/jakec04/ILGA_scraper" target="_blank" rel="noopener">Scraper</a></div>
                                 </div>
                                 <div class="compact-entry">
-                                    <div class="compact-title">Michigan Public Wikidata Record <span style="font-family: var(--mono); font-size: 11px; color: var(--text-ter); font-weight: 400;">&middot; structured data</span></div>
-                                    <div class="compact-sub">Audited and rebuilt the station's Wikidata item &mdash; FCC facility IDs, call signs, website qualifiers, Knowledge Graph mapping &mdash; so search and voice surfaces describe the org correctly. <a href="https://www.wikidata.org/wiki/Q16974093" target="_blank" style="color: var(--text-main);">Q16974093</a></div>
+                                    <div class="compact-title">Michigan Public Wikidata Record <span class="compact-stack">&middot; structured data</span></div>
+                                    <div class="compact-sub">Audited and rebuilt the station's Wikidata item (FCC facility IDs, call signs, website qualifiers, Knowledge Graph mapping) so search and voice surfaces describe the org correctly. <a href="https://www.wikidata.org/wiki/Q16974093" target="_blank" rel="noopener">Q16974093</a></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- RIGHT COLUMN: Recognition, Education, Skills -->
+                        <!-- RIGHT COLUMN -->
                         <div class="resume-col-right">
                             <div class="sec" style="margin-bottom: 0;">
-                                <div class="sec-head"><h2 class="sec-title">Recognition</h2></div>
-                                <div class="awards-grid" style="grid-template-columns: 1fr;">
+                                <div class="sec-head"><h3 class="sec-title">Recognition</h3></div>
+                                <div class="awards-grid">
+                                    <div class="award-block">
+                                        <div class="award-org">Emmy Award Nominations, 2026</div>
+                                        <ul class="award-list">
+                                            <li>College Student Production: Sports</li>
+                                            <li>College Student Production: Public Affairs/Community Service</li>
+                                            <li class="award-hm">Chicago/Midwest NATAS</li>
+                                        </ul>
+                                    </div>
                                     <div class="award-block">
                                         <div class="award-org">Peter Lisagor Awards</div>
                                         <ul class="award-list">
@@ -1150,9 +1106,9 @@
                             </div>
 
                             <div class="sec" style="margin-bottom: 0;">
-                                <div class="sec-head"><h2 class="sec-title">Education</h2></div>
+                                <div class="sec-head"><h3 class="sec-title">Education</h3></div>
                                 <div class="compact-entry">
-                                    <div class="compact-title">B.A. Journalism &mdash; DePaul University</div>
+                                    <div class="compact-title">DePaul University, B.A. in Journalism (cum laude)</div>
                                     <div class="compact-sub">Minor: English Literature &middot; Certificate: Geographic Information Systems<br>Graduated June 2026<br>Coursework: Data journalism, GIS and spatial analysis, media law, investigative reporting</div>
                                 </div>
                                 <div class="compact-entry">
@@ -1166,8 +1122,8 @@
                             </div>
 
                             <div class="sec" style="margin-bottom: 0;">
-                                <div class="sec-head"><h2 class="sec-title">Skills</h2></div>
-                                <div class="skills-grid" style="grid-template-columns: 1fr 1fr;">
+                                <div class="sec-head"><h3 class="sec-title">Skills</h3></div>
+                                <div class="skills-grid">
                                     <div class="skill-item">
                                         <div class="skill-name">Product Management</div>
                                         <div class="skill-detail">Roadmaps, scoping, launch tracking, backlog triage, Notion</div>
@@ -1178,7 +1134,7 @@
                                     </div>
                                     <div class="skill-item">
                                         <div class="skill-name">Analytics &amp; Measurement</div>
-                                        <div class="skill-detail">GA4 event design, Chartbeat, Triton, dashboard specs</div>
+                                        <div class="skill-detail">GA4 event design, UTM taxonomy, Chartbeat, Triton, dashboard specs</div>
                                     </div>
                                     <div class="skill-item">
                                         <div class="skill-name">Audience &amp; Lifecycle</div>
@@ -1186,7 +1142,7 @@
                                     </div>
                                     <div class="skill-item">
                                         <div class="skill-name">Email &amp; CRM</div>
-                                        <div class="skill-detail">Mailchimp, ESP migration, deliverability, list health</div>
+                                        <div class="skill-detail">Mailchimp, HTML email, ESP migration, deliverability, list health</div>
                                     </div>
                                     <div class="skill-item">
                                         <div class="skill-name">Privacy &amp; Consent</div>
@@ -1232,19 +1188,24 @@
             <div class="aud-layout">
                 <div class="aud-sidebar">
                     <div class="aud-sidebar-head">
-                        <div class="aud-sidebar-title">Selected Work</div>
-                        <div class="aud-sidebar-sub">Distribution and audience projects &mdash; what the problem was, what I did, what it moved.</div>
+                        <h2 class="aud-sidebar-title">Selected work</h2>
+                        <div class="aud-sidebar-sub">Product and audience projects: what the problem was, what I did, what it moved.</div>
                     </div>
                     <div class="aud-list" role="tablist" aria-orientation="vertical" aria-label="Case studies">
                         <button class="aud-item selected" type="button" role="tab" id="audtab-whatsapp" aria-controls="aud-whatsapp" aria-selected="true" data-aud="whatsapp">
                             <div class="aud-item-meta"><span>2025</span><span>Block Club</span></div>
                             <div class="aud-item-title">WhatsApp Channel Launch</div>
-                            <div class="aud-item-preview">Immigration news distribution to 3,200+ subscribers</div>
+                            <div class="aud-item-preview">3,200+ subscribers in six weeks</div>
                         </button>
                         <button class="aud-item" type="button" role="tab" id="audtab-newsletters" aria-controls="aud-newsletters" aria-selected="false" tabindex="-1" data-aud="newsletters">
                             <div class="aud-item-meta"><span>2025 &mdash; 2026</span><span>Block Club</span></div>
                             <div class="aud-item-title">Newsletter Production</div>
                             <div class="aud-item-preview">25+ editions weekly, 130,000+ subscribers</div>
+                        </button>
+                        <button class="aud-item" type="button" role="tab" id="audtab-betting" aria-controls="aud-betting" aria-selected="false" tabindex="-1" data-aud="betting">
+                            <div class="aud-item-meta"><span>2025</span><span>NBC 5 / CJIE</span></div>
+                            <div class="aud-item-title">Sports Betting Tax Calculator</div>
+                            <div class="aud-item-preview">A news app for a Lisagor-winning investigation</div>
                         </button>
                         <button class="aud-item" type="button" role="tab" id="audtab-instagram" aria-controls="aud-instagram" aria-selected="false" tabindex="-1" data-aud="instagram">
                             <div class="aud-item-meta"><span>2024 &mdash; 2025</span><span>DePaulia</span></div>
@@ -1259,78 +1220,126 @@
                     <!-- WhatsApp -->
                     <div class="aud-detail-panel active" id="aud-whatsapp" role="tabpanel" aria-labelledby="audtab-whatsapp">
                         <div class="aud-detail-meta">Block Club Chicago &middot; 2025</div>
-                        <div class="aud-detail-title">WhatsApp Channel Launch</div>
+                        <h3 class="aud-detail-title">WhatsApp Channel Launch</h3>
                         <div class="aud-detail-org">Immigration news distribution</div>
 
                         <div class="case-image">
                             <img src="images/whatsapp_mockups.jpg" alt="Block Club Chicago WhatsApp broadcast channel">
                         </div>
 
-                        <div class="case-section-head">The Opportunity</div>
-                        <div class="case-body"><p>During intensified federal immigration enforcement, Chicago residents were turning to WhatsApp for news &mdash; and to rumors, when real reporting wasn't there. Block Club's coverage wasn't reaching the platform where the conversation was happening.</p></div>
+                        <div class="case-section-head">The opportunity</div>
+                        <div class="case-body">
+                            <p>When federal immigration agents arrived in Chicago for Operation Midway Blitz in fall 2025, Block Club's reporters published more than 230 immigration stories in three months. Months earlier, I'd pitched WhatsApp as a way to reach Spanish-speaking readers on the Southwest Side. The raids made it urgent.</p>
+                        </div>
 
-                        <div class="case-section-head">What I Did</div>
-                        <div class="case-body"><p>Launched Block Club's WhatsApp Channel to put verified coverage in front of the community most affected, on the surface they were already using.</p></div>
+                        <div class="case-section-head">Why WhatsApp?</div>
+                        <div class="case-body">
+                            <p>Pew found Hispanic Americans use WhatsApp at 46%, far above other groups, and it mirrors how many residents already organize: family threads, group chats, local broadcasts. A broadcast channel is one-way, so readers get the news without it turning into a group chat.</p>
+                        </div>
+
+                        <div class="case-section-head">What I did</div>
+                        <ul class="case-list">
+                            <li>Set the channel up on a newsroom phone so it wasn't tied to one staffer's number, with editor review before every post</li>
+                            <li>Settled on a format of one to three already-published stories plus a strong photo, which one person could build in minutes</li>
+                            <li>Only shared reporting that was verified and live on the site, and didn't promise readers more security than our other platforms</li>
+                            <li>Posted daily at the height of enforcement, then a few times a week as things settled</li>
+                            <li>Promoted it through our newsletters, a launch story and social</li>
+                        </ul>
 
                         <div class="case-section-head">Results</div>
                         <div class="stat-row stat-row-single">
-                            <div class="stat-card"><span class="stat-value">3,200</span><span class="stat-label">subscribers in six weeks</span></div>
+                            <div class="stat-card"><span class="stat-value">3,200+</span><span class="stat-label">subscribers in six weeks after the Oct. 8, 2025 launch</span></div>
+                                                    </div>
+
+                        <div class="case-section-head">What I'd do differently</div>
+                        <div class="case-body">
+                            <p>WhatsApp only shows 30 days of reach and follower data, and subscribers are anonymous. I'd build our own tracking into the links from day one. I'd also set a recurring reminder once we dropped below daily posting, because a channel that isn't part of the daily workflow slips.</p>
                         </div>
 
                         <div class="case-section-head">Recognition</div>
-                        <p class="case-recognition">Knight Foundation, American Journalism Project, Newspack, Medill Midwest Solutions Lab, Reuters.</p>
+                        <p class="case-recognition">The American Journalism Project, Northwestern's Medill School and the Knight Foundation each wrote about the channel, and Reuters mentioned it in a report on student journalists covering ICE.</p>
 
-                        <a href="https://newspack.com/reach-new-audiences-with-whatsapp/" class="case-feature-link" target="_blank">
-                            <div class="case-feature-meta">Featured in &middot; Newspack Blog</div>
-                            <div class="case-feature-title">Read the full case study on how the channel was built &rarr;</div>
+                        <a href="https://newspack.com/reach-new-audiences-with-whatsapp/" class="case-feature-link" target="_blank" rel="noopener">
+                            <div class="case-feature-meta">Written for Newspack</div>
+                            <div class="case-feature-title">Read my full write-up on how we built the channel</div>
                         </a>
                     </div>
 
                     <!-- Newsletter Production -->
                     <div class="aud-detail-panel" id="aud-newsletters" role="tabpanel" aria-labelledby="audtab-newsletters">
                         <div class="aud-detail-meta">Block Club Chicago &middot; 2025 &mdash; 2026</div>
-                        <div class="aud-detail-title">Newsletter Production</div>
+                        <h3 class="aud-detail-title">Newsletter Production</h3>
                         <div class="aud-detail-org">Newsletter desk &middot; 25+ editions weekly &middot; 130,000+ subscribers</div>
 
                         <div class="case-image">
                             <img src="images/newsletter_mockups.jpg" alt="Block Club Chicago newsletter editions">
                         </div>
 
-                        <div class="case-section-head">What I Did</div>
+                        <div class="case-section-head">What I did</div>
                         <ul class="case-list">
                             <li>Wrote and edited daily editions, packaging reporters' stories for people reading on a phone in line for coffee</li>
                             <li>A/B tested subject lines against open rate, CTR and CTOR, and kept what worked instead of what sounded clever</li>
-                            <li>Made the hierarchy calls &mdash; what leads, what gets a callout, what context a reader needs before the link</li>
+                            <li>Made the hierarchy calls: what leads, what gets a callout, what context a reader needs before the link</li>
                             <li>Built custom designs for large features and original service, arts and civic pieces</li>
                         </ul>
 
+                        <div class="case-section-head">Results</div>
+                        <div class="stat-row stat-row-single">
+                            <div class="stat-card"><span class="stat-value">130,000+</span><span class="stat-label">subscribers per send</span></div>
+                        </div>
+
                         <div class="case-takeaway">Sending to 130,000 people every day is the fastest feedback loop in the building. It's where I learned to read a number and change something the next morning.</div>
+                    </div>
+
+                    <!-- Sports Betting -->
+                    <div class="aud-detail-panel" id="aud-betting" role="tabpanel" aria-labelledby="audtab-betting">
+                        <div class="aud-detail-meta">DePaul CJIE / NBC 5 Chicago &middot; 2025</div>
+                        <h3 class="aud-detail-title">Sports Betting Tax Calculator</h3>
+                        <div class="aud-detail-org">Interactive news app &middot; HTML + JavaScript</div>
+
+                        <div class="case-section-head">The problem</div>
+                        <div class="case-body"><p>Illinois added a per-wager tax on online sports bets. A charge on every bet is hard to picture from a story alone, so the calculator lets readers see what it would cost them based on how they bet.</p></div>
+
+                        <div class="case-section-head">What I did</div>
+                        <ul class="case-list">
+                            <li>Led data analysis and fact-checking on the investigation with NBC 5 Chicago's I-Team</li>
+                            <li>Built a calculator that lets a bettor enter how they bet and see what the tax takes</li>
+                            <li>Shipped it alongside the story so readers could go straight from the reporting to their own numbers</li>
+                        </ul>
+
+                        <div class="case-section-head">Recognition</div>
+                        <p class="case-recognition">The investigation won a Chicago Headline Club Peter Lisagor Award and was nominated for a 2026 Chicago/Midwest Emmy in College Student Production: Sports.</p>
+
+                        <div class="case-links">
+                            <a class="case-link" href="https://www.nbcchicago.com/chicago-sports-bears-sox-cubs-bulls-blackhawks/illinois-quietly-increases-cost-of-online-betting-and-chicago-may-be-next/3852846/" target="_blank" rel="noopener">Read the investigation</a>
+                            <a class="case-link" href="https://github.com/jakec04/wagering-tax-app" target="_blank" rel="noopener">View the repo</a>
+                        </div>
                     </div>
 
                     <!-- Instagram -->
                     <div class="aud-detail-panel" id="aud-instagram" role="tabpanel" aria-labelledby="audtab-instagram">
                         <div class="aud-detail-meta">The DePaulia &middot; 2024 &mdash; 2025</div>
-                        <div class="aud-detail-title">DePaulia Instagram Growth</div>
+                        <h3 class="aud-detail-title">DePaulia Instagram Growth</h3>
                         <div class="aud-detail-org">Social media strategy &amp; content workflow</div>
                         <div class="case-section-head">Results</div>
                         <div class="stat-row">
                             <div class="stat-card"><span class="stat-value">+2,000</span><span class="stat-label">new followers (53% increase)</span></div>
                             <div class="stat-card"><span class="stat-value">250K+</span><span class="stat-label">organic views</span></div>
                         </div>
-                        <div class="case-section-head">What I Did</div>
+                        <div class="case-section-head">What I did</div>
                         <ul class="case-list">
                             <li>Created short-form videos and grid posts for breaking news, explainers and feature stories</li>
-                            <li>Adapted stories for platform-specific formats following quickly changing industry standards</li>
+                            <li>Adapted stories for platform-specific formats as industry standards changed</li>
                             <li>Built a repeatable content workflow for a student newsroom that outlasted my tenure</li>
                         </ul>
                         <div class="case-section-head">Examples</div>
                         <div class="insta-grid">
-                            <a href="https://www.instagram.com/p/DGW78JCOmV1/" target="_blank"><img src="images/explainergrid.jpg" alt="DePaulia explainer Instagram post" loading="lazy"></a>
-                            <a href="https://www.instagram.com/p/DPjQOjyDAo3/" target="_blank"><img src="images/knowyourrightsgrid.jpg" alt="Know Your Rights Instagram post" loading="lazy"></a>
-                            <a href="https://www.instagram.com/p/DCfTi1Ppc2B/" target="_blank"><img src="images/featuregrid.jpg" alt="DePaulia feature story Instagram post" loading="lazy"></a>
-                            <a href="https://www.instagram.com/reel/DE5qkbFJATd/" target="_blank"><img src="images/reelexamplecta.jpg" alt="Instagram Reel with call to action" loading="lazy"></a>
-                            <a href="https://www.instagram.com/reel/C__HRT3P8zy/" target="_blank"><img src="images/reelexampleprojest.jpg" alt="Instagram Reel project example" loading="lazy"></a>
-                            <a href="https://www.instagram.com/reel/C-34HW5PrbS/" target="_blank"><img src="images/reelexamplednc.jpg" alt="Instagram Reel DNC coverage" loading="lazy"></a>
+                            <a href="https://www.instagram.com/p/DGW78JCOmV1/" target="_blank" rel="noopener"><img src="images/explainergrid.jpg" alt="DePaulia explainer Instagram post" loading="lazy"></a>
+                            <a href="https://www.instagram.com/p/DPjQOjyDAo3/" target="_blank" rel="noopener"><img src="images/knowyourrightsgrid.jpg" alt="Know Your Rights Instagram post" loading="lazy"></a>
+                            <a href="https://www.instagram.com/p/DCfTi1Ppc2B/" target="_blank" rel="noopener"><img src="images/featuregrid.jpg" alt="DePaulia feature story Instagram post" loading="lazy"></a>
+                            <a href="https://www.instagram.com/reel/DE5qkbFJATd/" target="_blank" rel="noopener"><img src="images/reelexamplecta.jpg" alt="Instagram Reel with call to action" loading="lazy"></a>
+                            <a href="https://www.instagram.com/reel/C__HRT3P8zy/" target="_blank" rel="noopener"><img src="images/reelexampleprojest.jpg" alt="Instagram Reel project example" loading="lazy"></a>
+                            <a href="https://www.instagram.com/reel/C-34HW5PrbS/" target="_blank" rel="noopener"><img src="images/reelexamplednc.jpg" alt="Instagram Reel DNC coverage" loading="lazy"></a>
                         </div>
                     </div>
                 </div>
@@ -1371,12 +1380,11 @@
             i.tabIndex = on ? 0 : -1;
         });
         audPanels.forEach(p => p.classList.remove('active'));
+        const current = audItems.find(i => i.dataset.aud === name);
+        if (current) current.scrollIntoView({ block: 'nearest', inline: 'nearest' });
         const target = document.getElementById('aud-' + name);
         if (target) {
             target.classList.add('active');
-            target.style.animation = 'none';
-            target.offsetHeight;
-            target.style.animation = 'fadeUp 0.3s ease both';
         }
     }
 
@@ -1408,7 +1416,7 @@
         });
     });
 
-    // In-page links to a case study (e.g. the home page featured card)
+    // In-page links to a case study (home featured card, resume projects)
     document.querySelectorAll('a[href^="#work/"]').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
@@ -1416,11 +1424,10 @@
         });
     });
 
-    // Arrow-key navigation within each tablist
     function addArrowNav(items, prevKey, nextKey) {
         items.forEach((item, i) => {
             item.addEventListener('keydown', e => {
-                const step = e.key === nextKey ? 1 : e.key === prevKey ? -1 : 0;
+                const step = nextKey.includes(e.key) ? 1 : prevKey.includes(e.key) ? -1 : 0;
                 if (!step) return;
                 e.preventDefault();
                 const next = items[(i + step + items.length) % items.length];
@@ -1429,8 +1436,8 @@
             });
         });
     }
-    addArrowNav(tabs, 'ArrowLeft', 'ArrowRight');
-    addArrowNav(audItems, 'ArrowUp', 'ArrowDown');
+    addArrowNav(tabs, ['ArrowLeft'], ['ArrowRight']);
+    addArrowNav(audItems, ['ArrowUp', 'ArrowLeft'], ['ArrowDown', 'ArrowRight']);
 </script>
 </body>
 </html>
