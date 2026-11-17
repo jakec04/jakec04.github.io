@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N5S2TF94');</script>
-    <!-- End Google Tag Manager -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jake Cox &mdash; News Product Manager, Chicago</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <meta name="description" content="Jake Cox — news product manager working on games, newsletters, personalization and analytics at Michigan Public. Lisagor Award-winning, Emmy-nominated journalist.">
+    <meta name="description" content="Jake Cox — news product manager working on games, newsletters, personalization and analytics at Michigan Public. Lisagor- and Emmy-winning journalist.">
     <link rel="canonical" href="https://jakec04.github.io/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Jake Cox — News Product Manager">
-    <meta property="og:description" content="Games, newsletters, personalization and analytics for public media. Currently product manager at Michigan Public.">
+    <meta property="og:description" content="Games, newsletters, personalization and analytics for public media. Currently news product manager at Michigan Public.">
     <meta property="og:url" content="https://jakec04.github.io/">
     <meta property="og:image" content="https://jakec04.github.io/images/og-card.png">
     <meta property="og:image:width" content="1200">
@@ -28,7 +20,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Jake Cox — News Product Manager">
-    <meta name="twitter:description" content="Games, newsletters, personalization and analytics for public media. Currently product manager at Michigan Public.">
+    <meta name="twitter:description" content="Games, newsletters, personalization and analytics for public media. Currently news product manager at Michigan Public.">
     <meta name="twitter:image" content="https://jakec04.github.io/images/og-card.png">
 
     <script type="application/ld+json">
@@ -37,7 +29,7 @@
         "@type": "Person",
         "name": "Jake Cox",
         "jobTitle": "News Product Manager",
-        "worksFor": { "@type": "Organization", "name": "Michigan Public", "url": "https://www.michiganpublic.org/" },
+        "worksFor": { "@type": "Organization", "name": "The Magpie Project" },
         "url": "https://jakec04.github.io/",
         "image": "https://jakec04.github.io/images/profile.jpg",
         "email": "mailto:coxja2204@gmail.com",
@@ -49,1208 +41,761 @@
         ]
     }
     </script>
+
+    <!-- Panels only hide once JS is running, so the whole site reads without it -->
+    <script>document.documentElement.classList.add('js');</script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* ═══════════ TOKENS ═══════════
+           Palette: one accent (Signal) used only where it means something:
+           links, the "new" dot, the selected message, focus.            */
         :root {
-            --bg-canvas: #EAEAE6;
-            --bg-frame: #D8E6F3;
-            --bg-tab-1: #CED7DE;
-            --bg-tab-2: #94A3B0;
-            --bg-warm: #E2D8CC;
-            
-            --text-main: #111111;
-            /* Darkened both so small mono labels pass WCAG AA (4.5:1) on canvas and warm cards */
-            --text-sec: #444444;
-            --text-ter: #5F5F5F;
+            --paper:    #E9EEF3;  /* page */
+            --sheet:    #F7F8FA;  /* content surface */
+            --ink:      #0E1A2B;  /* text */
+            --graphite: #4A5565;  /* secondary text */
+            --signal:   #1F4FD8;  /* the only accent */
+            --rule:     #C9D2DC;  /* dividers */
+            --tab-1:    #D2DBE4;  /* folders behind the open one, front to back */
+            --tab-2:    #C1CDD9;
+            --tab-3:    #B0BECC;
 
-            --border: #000000;
+            /* Type scale: six steps, nothing under 13px */
+            --t-xs: 13px;   /* dates, sources */
+            --t-s:  15px;   /* UI, lists, section heads */
+            --t-m:  17px;   /* reading prose */
+            --t-l:  24px;   /* lede, opened-message subject */
+            --t-xl: 36px;   /* page titles, stats */
+            --t-xxl: clamp(44px, 7vw, 64px); /* name */
 
-            --radius-tab: 12px;
-            --radius-card: 14px;
+            --s1: 4px; --s2: 8px; --s3: 16px; --s4: 24px; --s5: 40px; --s6: 64px;
 
-            --xs: 8px; --s: 16px; --m: 24px; --l: 32px; --xl: 48px;
+            --r-sheet: 10px;   /* containers */
+            --r-control: 6px;  /* buttons, link cards, thumbnails */
 
-            --sans: 'DM Sans', 'Helvetica Neue', Helvetica, sans-serif;
-            --mono: 'IBM Plex Mono', 'Courier New', monospace;
+            --grotesk: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+            --serif: 'Newsreader', Georgia, serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background: var(--bg-frame);
-            color: var(--text-main);
-            font-family: var(--sans);
-            min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: var(--l);
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--grotesk);
+            font-size: var(--t-s);
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            padding: var(--s4);
         }
 
-        a { color: var(--text-main); }
+        a { color: var(--signal); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+        a:hover { text-decoration-thickness: 2px; }
+        :focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; border-radius: 2px; }
 
-        .app-window {
-            width: 100%;
-            max-width: 1320px;
-            min-height: 92vh;
-            display: flex;
-            flex-direction: column;
+        .visually-hidden {
+            position: absolute; width: 1px; height: 1px; overflow: hidden;
+            clip: rect(0 0 0 0); white-space: nowrap;
         }
 
-        /* ═══════════ TOP BAR ═══════════ */
-        .top-bar {
-            display: flex;
-            justify-content: flex-end;
-            gap: var(--s);
-            padding: 0 var(--m) var(--s);
-            font-family: var(--mono);
-            font-size: 12px;
-        }
-        .top-bar a {
-            text-decoration: none;
-            color: var(--text-sec);
-            transition: color 0.2s;
-        }
-        .top-bar a:hover { color: var(--text-main); }
+        .frame { max-width: 1200px; margin: 0 auto; }
 
-        /* ═══════════ TABS ═══════════ */
-        .tabs-container {
+        /* ═══════════ MASTHEAD + FOLDER TABS ═══════════
+           The nav is a row of file-folder tabs. The open folder takes the
+           sheet's color and joins it; the others sit behind in deeper blues. */
+        .masthead { padding: 0 var(--s2); }
+        .contact-links { justify-content: flex-end; margin-bottom: var(--s2); }
+        .site-nav {
             display: flex;
             align-items: flex-end;
-            padding-left: 20px;
-            height: 48px;
-            position: relative;
-            z-index: 10;
+            padding-left: var(--s3);
+            height: 46px;
         }
-
-        .tab {
-            appearance: none;
-            border: none;
-            padding: 12px 36px 10px;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: var(--text-main);
-            background: var(--bg-tab-2);
-            border-radius: var(--radius-tab) var(--radius-tab) 0 0;
-            margin-right: -12px;
-            cursor: pointer;
+        html:not(.js) .site-nav { display: none; }
+        .site-nav button {
+            appearance: none; border: none; cursor: pointer;
             position: relative;
-            clip-path: polygon(8% 0, 92% 0, 100% 100%, 0% 100%);
-            min-width: 148px;
-            text-align: center;
-            transition: transform 0.2s ease;
-            font-family: var(--mono);
-            user-select: none;
+            min-width: 136px;
+            margin-right: -14px;
+            padding: 11px 32px 9px;
+            font: 500 var(--t-s)/1.2 var(--grotesk);
+            color: var(--ink);
+            background: var(--tab-1);
+            border-radius: var(--r-sheet) var(--r-sheet) 0 0;
+            clip-path: polygon(9% 0, 91% 0, 100% 100%, 0 100%);
+            transition: transform 0.15s ease;
         }
-        .tab:nth-child(2) { background: var(--bg-tab-1); z-index: 2; }
-        .tab:nth-child(3) { z-index: 1; }
-        .tab.active {
-            background: var(--bg-canvas);
-            z-index: 3;
+        .site-nav button:nth-child(1) { background: var(--tab-1); z-index: 3; }
+        .site-nav button:nth-child(2) { background: var(--tab-2); z-index: 2; }
+        .site-nav button:nth-child(3) { background: var(--tab-3); z-index: 1; }
+        .site-nav button:hover:not([aria-selected="true"]) { transform: translateY(-2px); }
+        .site-nav button[aria-selected="true"] {
+            background: var(--sheet);
+            z-index: 4;
             padding-bottom: 12px;
-            font-weight: 600;
+            font-weight: 700;
         }
-        .tab:hover:not(.active) { transform: translateY(-2px); }
-        .tab:focus-visible {
-            outline: 2px solid var(--text-main);
-            outline-offset: -4px;
-        }
+        .site-nav button:focus-visible { outline: 2px solid var(--signal); outline-offset: -6px; }
 
-        /* ═══════════ BODY ═══════════ */
-        .app-body {
-            background: var(--bg-canvas);
-            flex: 1;
-            border-radius: 12px;
-            border-top-left-radius: 0;
-            position: relative;
-            z-index: 5;
+        .contact-links { display: flex; gap: var(--s3); }
+        .contact-links a { color: var(--graphite); text-decoration: none; padding: var(--s2) 0; }
+        .contact-links a:hover { color: var(--ink); }
+
+        /* ═══════════ SHEET + PANELS ═══════════ */
+        .sheet {
+            background: var(--sheet);
+            border-radius: var(--r-sheet);
             overflow: hidden;
         }
+        .js .panel { display: none; }
+        .js .panel.active { display: block; }
+        html:not(.js) .panel + .panel { border-top: 1px solid var(--rule); }
+        .panel:focus-visible { outline-offset: -4px; }
 
-        .panel { display: none; }
-        .panel.active { display: flex; flex-direction: column; }
-
-        .scroll-area {
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        /* ═══════════ SHARED SECTION STYLES ═══════════ */
-        .content-col {
-            max-width: 740px;
-            padding: var(--xl) var(--l) var(--l);
-        }
-
-        .sec { margin-bottom: var(--xl); }
+        .wrap { padding: var(--s6) var(--s5) var(--s5); }
 
         .sec-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: var(--xs);
-            margin-bottom: var(--m);
+            font-size: var(--t-s);
+            font-weight: 700;
+            padding-bottom: var(--s2);
+            border-bottom: 1px solid var(--ink);
         }
-        .sec-title {
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: -0.005em;
-        }
-        .sec-count {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-ter);
-        }
+        .sec-intro { color: var(--graphite); margin: var(--s2) 0 var(--s2); max-width: 60ch; }
 
-        .meta-label {
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
-            color: var(--text-ter);
-            margin-bottom: 4px;
-        }
-
-        /* ═══════════ HOME PANEL ═══════════ */
-        .home-wrap { padding: var(--xl) var(--l) var(--l); max-width: 1240px; }
-
-        .home-top {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: var(--xl);
-            padding-bottom: var(--xl);
-            border-bottom: 1px solid var(--border);
-            margin-bottom: var(--xl);
-            align-items: start;
-        }
-
-        .hero-area { max-width: 620px; }
-
-        .home-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--xl);
-        }
-
+        /* ═══════════ HOME ═══════════ */
+        .hero { max-width: 760px; margin-bottom: var(--s6); }
         .hero-name {
-            font-size: clamp(48px, 6vw, 72px);
-            font-weight: 300;
+            font-size: var(--t-xxl);
+            font-weight: 700;
             line-height: 1;
-            letter-spacing: -0.04em;
-            margin-bottom: var(--m);
+            letter-spacing: -0.035em;
+            margin-bottom: var(--s4);
         }
-        .hero-text {
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--text-sec);
-            margin-bottom: var(--s);
+        .hero-lede {
+            font-family: var(--serif);
+            font-size: var(--t-l);
+            line-height: 1.35;
+            max-width: 32ch;
+            margin-bottom: var(--s4);
         }
         .hero-detail {
-            font-size: 14px;
+            font-family: var(--serif);
+            font-size: var(--t-m);
             line-height: 1.6;
-            color: var(--text-sec);
-            margin-bottom: var(--m);
+            color: var(--graphite);
+            max-width: 62ch;
+            margin-bottom: var(--s4);
         }
-        .hero-detail strong { color: var(--text-main); font-weight: 500; }
-
-        .hero-cta {
+        .hero-detail strong { color: var(--ink); font-weight: 400; }
+        .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); }
+        .btn {
             display: inline-block;
-            font-family: var(--mono);
-            font-size: 13px;
-            font-weight: 500;
+            font: 500 var(--t-s)/1 var(--grotesk);
             text-decoration: none;
-            color: var(--text-main);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 10px 24px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .hero-cta:hover { background: var(--text-main); color: var(--bg-canvas); }
-
-        /* Featured card */
-        .featured-card {
-            background: var(--bg-warm);
-            border-radius: var(--radius-card);
-            padding: var(--m);
-        }
-        .featured-label {
-            font-family: var(--mono);
-            font-size: 12px;
-            color: var(--text-ter);
-            margin-bottom: var(--xs);
-        }
-        .featured-title {
-            font-size: 22px;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            margin-bottom: var(--xs);
-        }
-        .featured-desc {
-            font-size: 14px;
-            line-height: 1.65;
-            color: var(--text-sec);
-            margin-bottom: var(--s);
-        }
-        .featured-link {
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: 500;
-            text-decoration: none;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 1px;
-            transition: opacity 0.2s;
-        }
-        .featured-link:hover { opacity: 0.6; }
-
-        /* Entry rows */
-        .entry {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-            gap: var(--s);
-        }
-        .entry:last-child { border-bottom: none; }
-        .entry-hed {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 1.45;
-        }
-        .entry-hed a {
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-        .entry-hed a:hover { border-bottom-color: var(--text-main); }
-        .entry-meta {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-ter);
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .entry-award {
-            font-family: var(--mono);
-            font-size: 11px;
-            font-style: italic;
-            color: var(--text-sec);
-            margin-top: 2px;
-        }
-
-        /* ═══════════ RESUME PANEL ═══════════ */
-        .resume-wrap {
-            padding: var(--xl) var(--l) var(--l);
-            max-width: 1240px;
-        }
-
-        .resume-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: var(--m);
-            padding-bottom: var(--m);
-            margin-bottom: var(--xl);
-            border-bottom: 1px solid var(--border);
-        }
-        .resume-header-text { max-width: 740px; }
-        .resume-header h2 {
-            font-size: 32px;
-            font-weight: 300;
-            letter-spacing: -0.02em;
-            margin-bottom: 6px;
-        }
-        .resume-header p {
-            font-size: 14px;
-            color: var(--text-sec);
-        }
-        .resume-photo {
-            width: 104px;
-            height: 104px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid var(--border);
-            flex-shrink: 0;
-        }
-        .resume-download {
-            display: inline-block;
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: 500;
-            text-decoration: none;
-            color: var(--text-main);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 8px 20px;
-            margin-top: var(--s);
-            transition: background 0.2s, color 0.2s;
-        }
-        .resume-download:hover { background: var(--text-main); color: var(--bg-canvas); }
-
-        .resume-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: var(--xl);
-            align-items: start;
-        }
-        .resume-col-right {
-            display: flex;
-            flex-direction: column;
-            gap: var(--xl);
-        }
-
-        .detail-card {
-            padding: var(--m) 0;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-        .detail-card:last-child { border-bottom: none; }
-        .detail-card-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-        }
-        .detail-card-title {
-            font-size: 16px;
-            font-weight: 500;
-        }
-        .detail-card-meta {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-ter);
+            padding: 12px 20px;
+            border-radius: var(--r-control);
+            border: 1px solid var(--ink);
+            color: var(--ink);
+            background: transparent;
             white-space: nowrap;
         }
-        .detail-card-org {
-            font-size: 14px;
-            color: var(--text-sec);
-            margin-bottom: var(--xs);
-        }
-        .detail-list {
-            list-style: none;
-            padding: 0;
-        }
-        .detail-list li {
-            font-size: 13px;
-            line-height: 1.6;
-            color: var(--text-sec);
-            padding: 4px 0 4px 16px;
-            position: relative;
-        }
-        .detail-list li::before {
-            content: '\2014';
-            position: absolute;
-            left: 0;
-            color: var(--text-ter);
-        }
+        .btn:hover { background: var(--paper); }
+        .btn-primary { background: var(--ink); color: var(--sheet); }
+        .btn-primary:hover { background: var(--signal); border-color: var(--signal); }
+        .availability { color: var(--graphite); }
 
-        /* Awards */
-        .awards-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--m);
-        }
-        .award-block + .award-block {
-            padding-top: var(--m);
-            border-top: 1px solid rgba(0,0,0,0.08);
-        }
-        .award-org {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: var(--xs);
-        }
-        .award-list {
-            list-style: none;
-            padding: 0;
-        }
-        .award-list li {
-            font-size: 13px;
-            color: var(--text-sec);
-            padding: 3px 0;
-        }
-        .award-hm {
-            font-family: var(--mono);
-            font-size: 10px;
-            font-style: italic;
-            color: var(--text-ter);
-        }
-
-        /* Compact entries */
-        .compact-entry {
-            padding: var(--s) 0;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-        .compact-entry:last-child { border-bottom: none; }
-        .compact-title {
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-        .compact-stack {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-ter);
-            font-weight: 400;
-        }
-        .compact-sub {
-            font-size: 13px;
-            color: var(--text-sec);
-            line-height: 1.55;
-        }
-
-        /* Skills */
-        .skills-grid {
+        .home-section { margin-bottom: var(--s6); }
+        .home-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            column-gap: var(--m);
-        }
-        .skill-item {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-        .skill-name {
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 3px;
-        }
-        .skill-detail {
-            font-size: 12px;
-            color: var(--text-sec);
-            line-height: 1.5;
+            gap: var(--s5);
         }
 
-        /* ═══════════ WORK PANEL ═══════════ */
-        .aud-layout {
+        /* ═══════════ LAKE MICHIGAN BACKDROP ═══════════
+           NOAA NCEI depth contours (every 10 m) for the lake's southern basin,
+           inside an OpenStreetMap shoreline, with a Chicago star on the Loop.
+           Faint and masked into the sheet. Hovering a contour lights up that depth;
+           hovering the star lines up the flag's four stars. Hidden on narrow screens. */
+        #panel-home .wrap { position: relative; }
+        .hero, .home-section, .home-split { position: relative; z-index: 1; }
+        .hero { width: fit-content; }  /* so the hero box doesn't sit over the lake and swallow its hovers */
+        .lake-bg {
+            position: absolute;
+            top: -48px;
+            right: -104px;
+            width: min(64%, 760px);
+            pointer-events: none;
+            z-index: 0;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 24%), linear-gradient(to bottom, #000 62%, transparent 97%);
+            -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to right, transparent 0%, #000 24%), linear-gradient(to bottom, #000 62%, transparent 97%);
+            mask-composite: intersect;
+        }
+        .js .lake-bg { animation: open 1.2s ease both; }
+        .lake-bg svg { display: block; width: 100%; height: auto; }
+        .lake-bg path, .lake-bg use { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+        .lake-bg .shore { stroke: var(--ink); stroke-opacity: 0.3; stroke-width: 1.6; }
+        .lake-bg .isos path {
+            stroke: var(--graphite);
+            stroke-opacity: 0.22;
+            stroke-width: 1.1;
+            transition: stroke 0.25s ease, stroke-opacity 0.25s ease, stroke-width 0.25s ease;
+        }
+        .lake-bg .isos path.on { stroke: var(--signal); stroke-opacity: 0.75; stroke-width: 1.6; }
+        .lake-bg .hits use { stroke: transparent; stroke-width: 10; pointer-events: stroke; }
+        .lake-bg .chi-hit { fill: transparent; pointer-events: all; }
+        .lake-bg .chi-star {
+            fill: var(--signal);
+            fill-opacity: 0.45;
+            transform: rotate(var(--a, 0deg)) scale(0.6);
+            opacity: 0;
+            transition: transform 0.35s cubic-bezier(.3, 1.3, .5, 1), opacity 0.25s ease, fill-opacity 0.25s ease;
+        }
+        .lake-bg .chi-star:first-of-type { opacity: 1; transform: rotate(var(--a, 0deg)); }
+        .lake-bg .chi.on .chi-star { opacity: 1; fill-opacity: 0.85; transform: translateX(var(--x)); }
+        .lake-bg .chi.on .chi-star:nth-of-type(2) { transition-delay: 0.04s; }
+        .lake-bg .chi.on .chi-star:nth-of-type(3) { transition-delay: 0.08s; }
+        .lake-bg .chi.on .chi-star:nth-of-type(4) { transition-delay: 0.12s; }
+
+        /* ═══════════ THE MESSAGE ROW ═══════════
+           One component for selected work, the work list and newsletters.
+           Sender = outlet, subject = project, preview = what it moved.
+           A Signal dot + bold subject marks the featured item, like unread mail. */
+        .inbox { list-style: none; }
+        .msg {
             display: grid;
-            grid-template-columns: 340px 1fr;
-            flex: 1;
+            grid-template-columns: 8px minmax(9rem, 12rem) 1fr auto;
+            gap: 0 var(--s3);
+            align-items: baseline;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--rule);
+            color: var(--ink);
+            text-decoration: none;
         }
+        .msg:hover .msg-subject { color: var(--signal); text-decoration: underline; text-underline-offset: 3px; }
+        .msg-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            align-self: center;
+        }
+        .msg.unread .msg-dot { background: var(--signal); }
+        .msg-from { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .msg-line { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .msg-subject { font-weight: 500; }
+        .msg.unread .msg-subject { font-weight: 700; }
+        .msg-preview { color: var(--graphite); margin-left: var(--s2); }
+        .msg-date {
+            font-size: var(--t-xs);
+            color: var(--graphite);
+            white-space: nowrap;
+        }
+        .inbox-compact .msg { grid-template-columns: 1fr auto; }
 
-        .aud-sidebar {
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .aud-sidebar-head {
-            padding: var(--m);
-            border-bottom: 1px solid var(--border);
-        }
-        .aud-sidebar-title {
-            font-size: 18px;
-            font-weight: 500;
-            letter-spacing: -0.01em;
-        }
-        .aud-sidebar-sub {
-            font-size: 13px;
-            color: var(--text-sec);
-            line-height: 1.5;
-            margin-top: 6px;
-        }
+        /* Reporting list */
+        .clips { list-style: none; }
+        .clips li { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+        .clips a { color: var(--ink); text-decoration: none; font-weight: 500; }
+        .clips a:hover { text-decoration: underline; }
+        .clip-source { display: block; font-size: var(--t-xs); color: var(--graphite); margin-top: 2px; }
 
-        .aud-list {
-            flex: 1;
-            overflow-y: auto;
-            padding: var(--s) 0;
+        /* ═══════════ WORK ═══════════ */
+        .work-layout {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            min-height: 80vh;
         }
+        .work-list {
+            border-right: 1px solid var(--rule);
+            padding: var(--s5) 0 var(--s4);
+        }
+        .work-list-head { padding: 0 var(--s4) var(--s3); }
+        .work-list-head h2 { font-size: var(--t-l); font-weight: 700; letter-spacing: -0.01em; }
+        .work-list-head p { color: var(--graphite); margin-top: var(--s1); }
+
+        .aud-items { border-top: 1px solid var(--rule); }
         .aud-item {
             appearance: none;
-            display: block;
+            display: grid;
+            grid-template-columns: 8px 1fr auto;
+            gap: 2px var(--s3);
             width: 100%;
             text-align: left;
-            background: none;
             font: inherit;
             color: inherit;
+            background: none;
             border: none;
-            padding: var(--s) var(--m);
+            border-bottom: 1px solid var(--rule);
+            padding: 14px var(--s4);
             cursor: pointer;
-            border-left: 3px solid transparent;
-            transition: background 0.15s;
         }
-        .aud-item:hover { background: rgba(0,0,0,0.03); }
-        .aud-item:focus-visible {
-            outline: 2px solid var(--text-main);
-            outline-offset: -2px;
+        .aud-item:hover { background: var(--paper); }
+        .aud-item:focus-visible { outline-offset: -2px; }
+        .aud-item[aria-selected="true"] {
+            background: var(--paper);
+            box-shadow: inset 3px 0 0 var(--signal);
         }
-        .aud-item.selected {
-            border-left-color: var(--text-main);
-            background: rgba(0,0,0,0.05);
-        }
-        .aud-item-meta {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-ter);
-            margin-bottom: 4px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .aud-item-title {
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 3px;
-        }
-        .aud-item-preview {
-            font-size: 13px;
-            color: var(--text-sec);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .aud-item .msg-dot { grid-row: 1; grid-column: 1; }
+        .aud-item.unread .msg-dot { background: var(--signal); }
+        .aud-item .msg-from { grid-column: 2; }
+        .aud-item .msg-date { grid-column: 3; }
+        .aud-item .msg-subject { grid-column: 2 / 4; }
+        .aud-item.unread .msg-subject { font-weight: 700; }
+        .aud-item .msg-preview {
+            grid-column: 2 / 4;
+            margin-left: 0;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
 
-        .aud-detail {
-            padding: var(--xl) var(--l);
-            overflow-y: auto;
-        }
+        .work-detail { padding: var(--s5) var(--s5) var(--s6); }
+        .js .aud-detail-panel { display: none; }
+        .js .aud-detail-panel.active { display: block; animation: open 0.2s ease both; }
+        html:not(.js) .aud-detail-panel + .aud-detail-panel { margin-top: var(--s6); }
+        .aud-detail-panel { max-width: 680px; }
+        @keyframes open { from { opacity: 0; } to { opacity: 1; } }
 
-        .aud-detail-panel { display: none; max-width: 680px; }
-        .aud-detail-panel.active { display: block; }
-
-        .aud-detail-meta {
-            font-family: var(--mono);
-            font-size: 12px;
-            color: var(--text-ter);
-            margin-bottom: var(--xs);
-        }
-        .aud-detail-title {
-            font-size: 28px;
-            font-weight: 400;
+        .mail-subject {
+            font-size: var(--t-l);
+            font-weight: 700;
+            line-height: 1.25;
             letter-spacing: -0.01em;
-            margin-bottom: var(--xs);
+            margin-bottom: var(--s2);
         }
-        .aud-detail-org {
-            font-size: 14px;
-            color: var(--text-sec);
-            margin-bottom: var(--m);
+        .mail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: var(--s1) var(--s3);
+            padding-bottom: var(--s3);
+            border-bottom: 1px solid var(--rule);
         }
-
-        .case-section-head {
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: -0.005em;
-            margin-bottom: var(--xs);
-            margin-top: var(--l);
-        }
-        .case-body {
-            font-size: 14px;
-            line-height: 1.65;
-            color: var(--text-sec);
-        }
-        .case-body p + p { margin-top: var(--xs); }
-        .case-list {
-            list-style: none;
-            padding: 0;
-        }
-        .case-list li {
-            font-size: 13px;
-            line-height: 1.6;
-            color: var(--text-sec);
-            padding: 4px 0 4px 16px;
-            position: relative;
-        }
-        .case-list li::before {
-            content: '\2014';
-            position: absolute;
-            left: 0;
-            color: var(--text-ter);
-        }
-
-        .stat-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--s);
-            margin-top: var(--s);
-        }
-        .stat-row-single { grid-template-columns: 1fr; }
-        .stat-card {
-            padding-top: var(--s);
-            border-top: 1px solid var(--border);
-        }
-        .stat-value {
-            font-size: 44px;
-            font-weight: 300;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-            display: block;
-        }
-        .stat-label {
-            font-size: 12px;
-            color: var(--text-sec);
-            display: block;
-            margin-top: 2px;
-        }
-
-        .case-takeaway {
-            border-left: 2px solid var(--text-main);
-            padding: 2px 0 2px var(--s);
-            margin-top: var(--l);
-            font-size: 14px;
-            line-height: 1.65;
-            color: var(--text-sec);
-            font-style: italic;
-        }
+        .mail-from strong { font-weight: 500; }
+        .mail-from span { color: var(--graphite); }
+        .mail-meta time { font-size: var(--t-xs); color: var(--graphite); }
 
         .case-image {
-            margin-top: var(--m);
-            margin-bottom: var(--xs);
-            border-radius: var(--radius-card);
+            margin-top: var(--s4);
+            border-radius: var(--r-control);
             overflow: hidden;
-            border: 1px solid var(--border);
             aspect-ratio: 16 / 9;
-            background: var(--bg-tab-1);
+            background: var(--paper);
         }
-        .case-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+        .case-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .case-feature-link {
-            display: block;
-            text-decoration: none;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-card);
-            padding: var(--m);
-            margin-top: var(--l);
-            transition: transform 0.2s ease, background 0.2s ease;
+        .case-head {
+            font-size: var(--t-s);
+            font-weight: 700;
+            margin: var(--s5) 0 var(--s2);
         }
-        .case-feature-link:hover { background: var(--bg-warm); }
-        .case-feature-meta {
-            font-family: var(--mono);
-            font-size: 12px;
-            color: var(--text-ter);
-            margin-bottom: 6px;
-        }
-        .case-feature-title {
-            font-size: 18px;
-            font-weight: 500;
-            letter-spacing: -0.01em;
-            color: var(--text-main);
-            line-height: 1.4;
-        }
-
-        .case-links {
-            display: flex;
-            gap: var(--m);
-            margin-top: var(--m);
-        }
-        .case-link {
-            display: inline-block;
-            font-family: var(--mono);
-            font-size: 12px;
-            font-weight: 500;
-            text-decoration: none;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--text-main);
-            transition: opacity 0.2s;
-        }
-        .case-link:hover { opacity: 0.6; }
-
-        .case-recognition {
-            font-size: 13px;
-            color: var(--text-sec);
+        .case-body, .case-list {
+            font-family: var(--serif);
+            font-size: var(--t-m);
             line-height: 1.6;
+            color: var(--ink);
         }
+        .case-body p + p { margin-top: var(--s3); }
+        .case-list { padding-left: 1.2em; }
+        .case-list li { padding: var(--s1) 0; }
+        .case-list li::marker { color: var(--graphite); }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--s4);
+        }
+        .stat { padding-top: var(--s3); border-top: 1px solid var(--ink); }
+        .stat-value {
+            display: block;
+            font-size: var(--t-xl);
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+
+        }
+        .stat-label { display: block; color: var(--graphite); margin-top: var(--s1); }
+
+        .takeaway {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: var(--t-m);
+            line-height: 1.6;
+            border-left: 2px solid var(--signal);
+            padding-left: var(--s3);
+            margin-top: var(--s5);
+        }
+
+        .link-card {
+            display: block;
+            margin-top: var(--s4);
+            padding: var(--s3) var(--s4);
+            border: 1px solid var(--rule);
+            border-radius: var(--r-control);
+            text-decoration: none;
+            color: var(--ink);
+        }
+        .link-card:hover { border-color: var(--ink); background: var(--paper); }
+        .link-card small { display: block; font-size: var(--t-xs); color: var(--graphite); margin-bottom: 2px; }
+        .link-card span { font-weight: 500; font-size: var(--t-m); }
+
+        .case-links { display: flex; flex-wrap: wrap; gap: var(--s4); margin-top: var(--s4); font-weight: 500; }
 
         .insta-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
-            margin-top: var(--s);
+            gap: var(--s2);
         }
         .insta-grid a {
             display: block;
             aspect-ratio: 1;
-            background: var(--bg-tab-1);
-            border-radius: 6px;
+            border-radius: var(--r-control);
             overflow: hidden;
-            position: relative;
-            text-decoration: none;
-            transition: transform 0.2s ease;
+            background: var(--paper);
         }
-        .insta-grid a:hover { transform: scale(1.02); }
-        .insta-grid img {
-            width: 100%;
-            height: 100%;
+        .insta-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* ═══════════ RESUME ═══════════ */
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--s4);
+            padding-bottom: var(--s4);
+            margin-bottom: var(--s5);
+            border-bottom: 1px solid var(--ink);
+        }
+        .resume-header h2 {
+            font-size: var(--t-xl);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: var(--s2);
+        }
+        .resume-header p { color: var(--graphite); margin-bottom: var(--s3); }
+        .resume-photo {
+            width: 104px; height: 104px;
+            border-radius: 50%;
             object-fit: cover;
-            display: block;
+            flex-shrink: 0;
+            background: var(--paper);
         }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: var(--s6);
+            align-items: start;
+        }
+        .resume-col { display: flex; flex-direction: column; gap: var(--s5); }
+
+        .job { padding: var(--s4) 0; border-bottom: 1px solid var(--rule); }
+        .job:last-child { border-bottom: none; }
+        .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3); }
+        .job-title { font-size: var(--t-m); font-weight: 700; }
+        .job-dates { font-size: var(--t-xs); color: var(--graphite); white-space: nowrap; }
+        .job-org { color: var(--graphite); margin-bottom: var(--s2); }
+        .job ul { padding-left: 1.2em; color: var(--ink); }
+        .job li { padding: 3px 0; }
+        .job li::marker { color: var(--graphite); }
+
+        .entry { padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
+        .entry:last-child { border-bottom: none; }
+        .entry-title { font-weight: 700; }
+        .entry-stack { font-weight: 400; color: var(--graphite); }
+        .entry-sub { color: var(--graphite); margin-top: 2px; }
+
+        .award { padding: var(--s3) 0; border-bottom: 1px solid var(--rule); }
+        .award:last-child { border-bottom: none; }
+        .award h4 { font-size: var(--t-s); font-weight: 700; }
+        .award-source { font-size: var(--t-xs); color: var(--graphite); margin-bottom: var(--s1); }
+        .award ul { list-style: none; }
+        .award li { padding: 2px 0; }
+        .award .hm { color: var(--graphite); }
+
+        .skills { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--s4); }
+        .skills div { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+        .skills dt { font-weight: 700; }
+        .skills dd { color: var(--graphite); }
 
         /* ═══════════ FOOTER ═══════════ */
         .site-footer {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: var(--m) 0;
-            margin-top: var(--m);
-            border-top: 1px solid rgba(0,0,0,0.08);
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-ter);
+            gap: var(--s3);
+            padding: var(--s3) var(--s5);
+            border-top: 1px solid var(--rule);
+            font-size: var(--t-xs);
+            color: var(--graphite);
         }
-        .footer-links { display: flex; gap: var(--s); }
-        .footer-links a {
-            color: var(--text-ter);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: var(--text-main); }
-
-        .site-footer-full {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--s) var(--l);
-            border-top: 1px solid rgba(0,0,0,0.08);
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--text-ter);
-        }
-
-        /* ═══════════ SCROLLBAR ═══════════ */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #CCC; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #BBB; }
-
-        /* ═══════════ ANIMATIONS ═══════════ */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .panel.active { animation: fadeUp 0.3s ease both; }
+        .site-footer nav { display: flex; gap: var(--s3); }
+        .site-footer a { color: var(--graphite); }
 
         @media (prefers-reduced-motion: reduce) {
-            * { animation: none !important; transition: none !important; }
+            * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
         }
 
         /* ═══════════ RESPONSIVE ═══════════ */
-        @media (max-width: 920px) {
-            body { padding: var(--s); }
-            .aud-layout { grid-template-columns: 1fr; }
-            .aud-sidebar {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-            }
-            .aud-sidebar-head { padding: var(--m) var(--m) var(--s); border-bottom: none; }
-            .aud-list {
-                display: flex;
-                overflow-x: auto;
-                padding: 0 var(--s);
-                scrollbar-width: none;
-            }
-            .aud-list::-webkit-scrollbar { display: none; }
-            .aud-item {
-                flex: 0 0 auto;
-                width: auto;
-                padding: var(--s) var(--xs) 12px;
-                margin-right: var(--s);
-                border-left: none;
-                border-bottom: 2px solid transparent;
-            }
-            .aud-item.selected { border-bottom-color: var(--text-main); background: none; }
-            .aud-item-meta, .aud-item-preview { display: none; }
-            .aud-item-title { margin-bottom: 0; white-space: nowrap; }
-            .aud-detail { padding: var(--l) var(--m); }
-            .tab { min-width: 108px; padding: 10px 20px 8px; font-size: 11px; }
-            .stat-row { grid-template-columns: 1fr; }
-            .home-top { grid-template-columns: 1fr; gap: var(--l); }
-            .home-grid { grid-template-columns: 1fr; gap: var(--l); }
-            .resume-grid { grid-template-columns: 1fr; gap: var(--l); }
-            .content-col, .home-wrap, .resume-wrap, .resume-header { padding-left: var(--m); padding-right: var(--m); }
-            .resume-photo { width: 84px; height: 84px; }
+        @media (max-width: 900px) {
+            body { padding: var(--s3); }
+            .wrap { padding: var(--s5) var(--s4) var(--s4); }
+            .home-split, .resume-grid { grid-template-columns: 1fr; gap: var(--s5); }
+            .lake-bg { display: none; }
+            .work-layout { grid-template-columns: 1fr; min-height: 0; }
+            .work-list { border-right: none; border-bottom: 1px solid var(--rule); padding-top: var(--s4); }
+            .work-list-head { padding: 0 var(--s4) var(--s3); }
+            .work-detail { padding: var(--s5) var(--s4); scroll-margin-top: var(--s3); }
+            .site-footer { padding: var(--s3) var(--s4); }
         }
-
-        @media (max-width: 520px) {
-            .skills-grid { grid-template-columns: 1fr; }
-            .tabs-container { padding-left: 8px; }
-            .tab { min-width: 90px; padding: 10px 14px 8px; font-size: 10px; }
-            .entry { flex-direction: column; gap: 4px; }
+        @media (max-width: 640px) {
+            .site-nav { padding-left: var(--s2); }
+            .site-nav button { min-width: 100px; padding: 10px 18px 8px; }
+            .site-nav button[aria-selected="true"] { padding-bottom: 11px; }
+            .msg { grid-template-columns: 8px 1fr auto; gap: 2px var(--s2); }
+            .msg-dot { grid-row: 1; grid-column: 1; }
+            .msg-from { grid-row: 1; grid-column: 2; }
+            .msg-date { grid-row: 1; grid-column: 3; }
+            .msg-line {
+                grid-row: 2;
+                grid-column: 2 / 4;
+                white-space: normal;
+                display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+            }
+            .msg-preview { margin-left: 0; display: block; }
+            .inbox-compact .msg { grid-template-columns: 1fr auto; }
+            .inbox-compact .msg-line { grid-row: 1; grid-column: 1; }
+            .inbox-compact .msg-date { grid-column: 2; }
+            .skills { grid-template-columns: 1fr; }
+            .resume-photo { width: 72px; height: 72px; }
+            .job-head { flex-direction: column; gap: 0; }
+            .site-footer { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5S2TF94"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
-<div class="app-window">
+<div class="frame">
 
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <a href="mailto:coxja2204@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/jakercox/">LinkedIn</a>
-        <a href="https://github.com/jakec04">GitHub</a>
-    </div>
-
-    <!-- TABS -->
-    <div class="tabs-container" role="tablist" aria-label="Site sections">
-        <button class="tab active" type="button" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true" data-panel="home">Home</button>
-        <button class="tab" type="button" role="tab" id="tab-resume" aria-controls="panel-resume" aria-selected="false" tabindex="-1" data-panel="resume">Resume</button>
-        <button class="tab" type="button" role="tab" id="tab-work" aria-controls="panel-work" aria-selected="false" tabindex="-1" data-panel="work">Work</button>
-    </div>
-
-    <div class="app-body">
-
-        <!-- ══════════════════════════════════════════ -->
-        <!-- HOME                                       -->
-        <!-- ══════════════════════════════════════════ -->
-        <div class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
-            <div class="scroll-area">
-                <div class="home-wrap">
-
-                    <div class="home-top">
-                        <div class="hero-area">
-                            <h1 class="hero-name">Jake Cox</h1>
-                            <p class="hero-text">News product manager. I work on the things an audience touches &mdash; games, newsletters, feeds &mdash; and the measurement, email and personalization plumbing underneath them.</p>
-                            <p class="hero-detail">I'm a product manager at <strong>Michigan Public</strong> through <strong>The Magpie Project</strong>, working across audio and podcasts, personalization, analytics, newsletters and games. Before that, I sent <strong>Block Club Chicago</strong>'s newsletters to 130,000 readers and ran digital at <strong>The DePaulia</strong>. The reporting I did along the way won four Peter Lisagor Awards and earned two Chicago/Midwest Emmy nominations.</p>
-                            <a href="mailto:coxja2204@gmail.com" class="hero-cta">Available for full-time &amp; contract work &rarr;</a>
-                        </div>
-
-                        <div>
-                            <div class="sec-head" style="margin-bottom: var(--s);"><h2 class="sec-title">Featured project</h2></div>
-                            <div class="featured-card">
-                                <div class="featured-label">Block Club Chicago, 2025</div>
-                                <div class="featured-title">WhatsApp Channel</div>
-                                <p class="featured-desc">During Operation Midway Blitz, I launched a WhatsApp channel that put Block Club's verified immigration coverage on the app Chicago's immigrant communities already used. It grew to 3,200+ subscribers in six weeks, and the Knight Foundation, the American Journalism Project and Medill all wrote about it.</p>
-                                <a href="#work/whatsapp" class="featured-link">Read the case study</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="home-grid">
-                        <div class="sec" style="margin-bottom: 0;">
-                            <div class="sec-head">
-                                <h2 class="sec-title">Reporting</h2>
-                                <span class="sec-count">5</span>
-                            </div>
-                            <p class="featured-desc" style="margin-bottom: 1rem;">Civic, arts and LGBTQ+ stories from Block Club and The DePaulia.</p>
-                            <div class="entry">
-                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/06/12/the-windy-city-times-told-lgbtq-stories-when-no-one-else-would-40-years-later-theyre-still-at-it/" target="_blank" rel="noopener">The Windy City Times Told LGBTQ+ Stories When No One Else Would. 40 Years Later, They're Still At It</a></div></div>
-                                <div class="entry-meta">Block Club &middot; Jun 2025</div>
-                            </div>
-                            <div class="entry">
-                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/10/22/resilience-arts-fest-to-showcase-stories-from-prison-and-beyond-art-humanizes-people/" target="_blank" rel="noopener">Resilience Arts Fest To Showcase Stories From Prison And Beyond: 'Art Humanizes People'</a></div></div>
-                                <div class="entry-meta">Block Club &middot; Oct 2025</div>
-                            </div>
-                            <div class="entry">
-                                <div><div class="entry-hed"><a href="https://blockclubchicago.org/2025/07/29/queer-radical-fair-returns-celebrating-acceptance-through-fashion/" target="_blank" rel="noopener">Queer Radical Fair Returns, Celebrating Acceptance Through Fashion</a></div></div>
-                                <div class="entry-meta">Block Club &middot; Jul 2025</div>
-                            </div>
-                            <div class="entry">
-                                <div>
-                                    <div class="entry-hed"><a href="https://depauliaonline.com/71546/news/campusnews/thats-not-doing-security-to-me-privately-contracted-security-guard-relocated-off-depaul-campus/" target="_blank" rel="noopener">'That's not doing security to me': Security guard relocated off DePaul campus</a></div>
-                                    <div class="entry-award">ACP: 4th Place, Best News Story</div>
-                                </div>
-                                <div class="entry-meta">DePaulia &middot; Sep 2024</div>
-                            </div>
-                            <div class="entry">
-                                <div><div class="entry-hed"><a href="https://depauliaonline.com/75464/artslife/james-baldwins-enduring-legacy-on-display-at-depaul/" target="_blank" rel="noopener">James Baldwin's enduring legacy on display at DePaul</a></div></div>
-                                <div class="entry-meta">DePaulia &middot; Feb 2025</div>
-                            </div>
-                        </div>
-
-                        <div class="sec" style="margin-bottom: 0;">
-                            <div class="sec-head">
-                                <h2 class="sec-title">Newsletters</h2>
-                                <span class="sec-count">3</span>
-                            </div>
-                            <p class="featured-desc" style="margin-bottom: 1rem;">Editions I wrote and built at Block Club, where I sent to 130,000 people and watched what happened.</p>
-                            <div class="entry">
-                                <div class="entry-hed"><a href="newsletters/proud-city-holiday-2025.html" target="_blank">Proud City (Holiday Edition, 2025)</a></div>
-                                <div class="entry-meta">Block Club</div>
-                            </div>
-                            <div class="entry">
-                                <div class="entry-hed"><a href="newsletters/proud-city-2025-06-12.html" target="_blank">Proud City (June 12, 2025)</a></div>
-                                <div class="entry-meta">Block Club</div>
-                            </div>
-                            <div class="entry">
-                                <div class="entry-hed"><a href="newsletters/afternoon-digest-2026-01-09.html" target="_blank">Afternoon Digest (January 9, 2026)</a></div>
-                                <div class="entry-meta">Block Club</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <footer class="site-footer">
-                        <span>&copy; 2026 Jake Cox</span>
-                        <div class="footer-links">
-                            <a href="mailto:coxja2204@gmail.com">email</a>
-                            <a href="https://www.linkedin.com/in/jakercox/">linkedin</a>
-                        </div>
-                    </footer>
-                </div>
-            </div>
+    <header class="masthead">
+        <nav class="contact-links" aria-label="Contact">
+            <a href="mailto:coxja2204@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/jakercox/">LinkedIn</a>
+            <a href="https://github.com/jakec04">GitHub</a>
+        </nav>
+        <div class="site-nav" role="tablist" aria-label="Site sections">
+            <button type="button" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true" data-panel="home">Home</button>
+            <button type="button" role="tab" id="tab-work" aria-controls="panel-work" aria-selected="false" tabindex="-1" data-panel="work">Work</button>
+            <button type="button" role="tab" id="tab-resume" aria-controls="panel-resume" aria-selected="false" tabindex="-1" data-panel="resume">Resume</button>
         </div>
+    </header>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- RESUME                                     -->
-        <!-- ══════════════════════════════════════════ -->
-        <div class="panel" id="panel-resume" role="tabpanel" aria-labelledby="tab-resume">
-            <div class="scroll-area">
-                <div class="resume-wrap">
-                    <div class="resume-header">
-                        <div class="resume-header-text">
-                            <h2>Resume</h2>
-                            <p>Experience, education, skills and recognition.</p>
-                            <a class="resume-download" href="jake-cox-resume.pdf" download>Download Resume (PDF) &darr;</a>
-                        </div>
-                        <img class="resume-photo" src="images/profile.jpg" alt="Jake Cox" width="104" height="104">
-                    </div>
+    <main class="sheet">
 
-                    <div class="resume-grid">
+        <!-- ══════════════ HOME ══════════════ -->
+        <section class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home" tabindex="0">
+            <div class="wrap">
 
-                        <!-- LEFT COLUMN -->
-                        <div>
-                            <div class="sec" style="margin-bottom: var(--xl);">
-                                <div class="sec-head"><h3 class="sec-title">Experience</h3></div>
-                                <div class="detail-card">
-                                    <div class="detail-card-head">
-                                        <div class="detail-card-title">Product Manager</div>
-                                        <div class="detail-card-meta">2026 &mdash; Present</div>
-                                    </div>
-                                    <div class="detail-card-org">Michigan Public / The Magpie Project &middot; Remote</div>
-                                    <ul class="detail-list">
-                                        <li>Manage product across five areas: audio, video and podcasts; personalization and recommendations; analytics; newsletters; and games</li>
-                                        <li>Own the roadmap for an unannounced <strong>game product</strong> built with an outside dev partner: scoping, launch tracking, content pipeline, QA and the call on what ships at launch versus after</li>
-                                        <li>Built newsletter and Apple News infrastructure: a redesigned Mailchimp template, production SOPs, a UTM taxonomy, and ANF article templates with custom CTAs</li>
-                                        <li>Turn reporting and stakeholder meetings into scoped, owned work in Notion, and run the tracking that keeps launch dates honest</li>
-                                    </ul>
-                                </div>
-                                <div class="detail-card">
-                                    <div class="detail-card-head">
-                                        <div class="detail-card-title">Newsletter Intern</div>
-                                        <div class="detail-card-meta">Apr 2025 &mdash; Jun 2026</div>
-                                    </div>
-                                    <div class="detail-card-org">Block Club Chicago &middot; Chicago, Ill.</div>
-                                    <ul class="detail-list">
-                                        <li>Launched and grew a <strong>WhatsApp broadcast channel</strong> to 3,200+ subscribers in six weeks, delivering verified immigration coverage to communities most affected by federal enforcement; written up by the Knight Foundation, American Journalism Project and Medill, and cited by Reuters</li>
-                                        <li>Produced and published daily newsletters to 130,000+ subscribers, making real-time story selection and placement calls against deadline</li>
-                                        <li>Analyzed open rates, CTR and CTOR across daily sends to A/B test subject lines and optimize story hierarchy for engagement lift</li>
-                                        <li>Reported breaking news and enterprise features across civic, arts, LGBTQ+ and weather beats for a nonprofit hyperlocal newsroom</li>
-                                        <li>Worked with editors and reporters to rework editions as coverage priorities shifted during the day</li>
-                                    </ul>
-                                </div>
-                                <div class="detail-card">
-                                    <div class="detail-card-head">
-                                        <div class="detail-card-title">Producer &amp; Lead Data Analyst</div>
-                                        <div class="detail-card-meta">Mar 2025 &mdash; Nov 2025</div>
-                                    </div>
-                                    <div class="detail-card-org">DePaul CJIE / NBC 5 Chicago &middot; Chicago, Ill.</div>
-                                    <ul class="detail-list">
-                                        <li>Led data analysis, fact-checking and structural editing on two long-form investigations produced with NBC 5 Chicago's I-Team</li>
-                                        <li>Built a Python web scraper to extract Illinois GA witness slips, surfacing opposition patterns that powered an investigative report</li>
-                                        <li>Developed an <strong>interactive news app</strong> showing bettors how Illinois' per-wager sports betting tax hits them</li>
-                                        <li>Packaged investigative findings for multi-platform publication and produced <strong>vertical video</strong> for Facebook, Instagram and YouTube</li>
-                                        <li>Both reports won Chicago Headline Club Peter Lisagor Awards and earned 2026 Chicago/Midwest Emmy nominations</li>
-                                    </ul>
-                                </div>
-                                <div class="detail-card">
-                                    <div class="detail-card-head">
-                                        <div class="detail-card-title">Digital Managing Editor</div>
-                                        <div class="detail-card-meta">Mar 2024 &mdash; Oct 2025</div>
-                                    </div>
-                                    <div class="detail-card-org">The DePaulia &middot; Chicago, Ill.</div>
-                                    <ul class="detail-list">
-                                        <li>Grew Instagram followers 53% (+2,000) and drove 250K+ organic views by rebuilding the social strategy around short-form video, platform-native formats and a repeatable content workflow that outlasted my tenure</li>
-                                        <li>Directed live breaking news coverage, including a student encampment live blog that won the Peter Lisagor Award for deadline writing</li>
-                                        <li>Led a digital staff of 25 across web, social and newsletter, setting editorial priorities and coaching reporters on deadline</li>
-                                        <li>Relaunched the paper's newsletter, social and search strategy; grew newsletter subscribers to nearly 1,000</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="sec" style="margin-bottom: 0;">
-                                <div class="sec-head"><h3 class="sec-title">Selected projects</h3></div>
-                                <div class="compact-entry">
-                                    <div class="compact-title">Sports Betting Tax News App <span class="compact-stack">&middot; html + javascript</span></div>
-                                    <div class="compact-sub">Interactive calculator built to accompany NBC Chicago's investigation of Illinois' new per-wager sports gambling tax. <a href="#work/betting">Case study</a> &middot; <a href="https://github.com/jakec04/wagering-tax-app" target="_blank" rel="noopener">Repo</a></div>
-                                </div>
-                                <div class="compact-entry">
-                                    <div class="compact-title">Illinois General Assembly Web Scraper <span class="compact-stack">&middot; python + beautifulsoup</span></div>
-                                    <div class="compact-sub">Automated tool collecting public testimony data from the Illinois legislature to measure opposition to a homeschooling regulation bill. The report was nominated for a 2026 Chicago/Midwest Emmy. <a href="https://www.nbcchicago.com/news/local/parents-lawmakers-battle-over-illinois-homeschool-act-what-to-know/3760545/" target="_blank" rel="noopener">Reporting</a> &middot; <a href="https://github.com/jakec04/ILGA_scraper" target="_blank" rel="noopener">Scraper</a></div>
-                                </div>
-                                <div class="compact-entry">
-                                    <div class="compact-title">Michigan Public Wikidata Record <span class="compact-stack">&middot; structured data</span></div>
-                                    <div class="compact-sub">Audited and rebuilt the station's Wikidata item (FCC facility IDs, call signs, website qualifiers, Knowledge Graph mapping) so search and voice surfaces describe the org correctly. <a href="https://www.wikidata.org/wiki/Q16974093" target="_blank" rel="noopener">Q16974093</a></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- RIGHT COLUMN -->
-                        <div class="resume-col-right">
-                            <div class="sec" style="margin-bottom: 0;">
-                                <div class="sec-head"><h3 class="sec-title">Recognition</h3></div>
-                                <div class="awards-grid">
-                                    <div class="award-block">
-                                        <div class="award-org">Emmy Award Nominations, 2026</div>
-                                        <ul class="award-list">
-                                            <li>College Student Production: Sports</li>
-                                            <li>College Student Production: Public Affairs/Community Service</li>
-                                            <li class="award-hm">Chicago/Midwest NATAS</li>
-                                        </ul>
-                                    </div>
-                                    <div class="award-block">
-                                        <div class="award-org">Peter Lisagor Awards</div>
-                                        <ul class="award-list">
-                                            <li>Deadline Writing (Small Newsroom)</li>
-                                            <li>Best Education Reporting (Student)</li>
-                                            <li>Best Politics &amp; Government Reporting (Student)</li>
-                                            <li>Best Sports Reporting (Student)</li>
-                                            <li class="award-hm">Chicago Headline Club</li>
-                                        </ul>
-                                    </div>
-                                    <div class="award-block">
-                                        <div class="award-org">Associated Collegiate Press</div>
-                                        <ul class="award-list">
-                                            <li>4th Place, Best News Story</li>
-                                            <li>6th Place, Best of Show Website</li>
-                                            <li><span class="award-hm">HM</span> Breaking News Story</li>
-                                            <li><span class="award-hm">HM</span> Best In-Depth News Story</li>
-                                            <li><span class="award-hm">HM</span> Social Media Reporting</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="sec" style="margin-bottom: 0;">
-                                <div class="sec-head"><h3 class="sec-title">Education</h3></div>
-                                <div class="compact-entry">
-                                    <div class="compact-title">DePaul University, B.A. in Journalism (cum laude)</div>
-                                    <div class="compact-sub">Minor: English Literature &middot; Certificate: Geographic Information Systems<br>Graduated June 2026<br>Coursework: Data journalism, GIS and spatial analysis, media law, investigative reporting</div>
-                                </div>
-                                <div class="compact-entry">
-                                    <div class="compact-title">DePaul FOIA Fellows Bootcamp</div>
-                                    <div class="compact-sub">Public records skills, FOIA strategy, request tracking and follow-up reporting</div>
-                                </div>
-                                <div class="compact-entry">
-                                    <div class="compact-title">Professional Memberships</div>
-                                    <div class="compact-sub">Investigative Reporters and Editors &middot; Chicago Headline Club, SPJ &middot; Online News Association</div>
-                                </div>
-                            </div>
-
-                            <div class="sec" style="margin-bottom: 0;">
-                                <div class="sec-head"><h3 class="sec-title">Skills</h3></div>
-                                <div class="skills-grid">
-                                    <div class="skill-item">
-                                        <div class="skill-name">Product Management</div>
-                                        <div class="skill-detail">Roadmaps, scoping, launch tracking, backlog triage, Notion</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">Working With Vendors</div>
-                                        <div class="skill-detail">Scoping with outside dev shops, QA, go-live, data access reviews</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">Analytics &amp; Measurement</div>
-                                        <div class="skill-detail">GA4 event design, UTM taxonomy, Chartbeat, Triton, dashboard specs</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">Audience &amp; Lifecycle</div>
-                                        <div class="skill-detail">Newsletters, platform distribution, retention loops, A/B testing</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">Email &amp; CRM</div>
-                                        <div class="skill-detail">Mailchimp, HTML email, ESP migration, deliverability, list health</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">Privacy &amp; Consent</div>
-                                        <div class="skill-detail">CCPA requirements, consent flows, first-party data handling</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">Programming &amp; Web</div>
-                                        <div class="skill-detail">HTML/CSS, Python, R, GitHub, Apple News Format JSON</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">Data Analysis</div>
-                                        <div class="skill-detail">Cleaning, visualization, Datawrapper, Flourish</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">Editorial</div>
-                                        <div class="skill-detail">Breaking news, enterprise, AP style, FOIA, live updates</div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <div class="skill-name">GIS &amp; Mapping</div>
-                                        <div class="skill-detail">ArcGIS Pro, Leaflet.js, spatial analysis</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <footer class="site-footer">
-                        <span>&copy; 2026 Jake Cox</span>
-                        <div class="footer-links">
-                            <a href="mailto:coxja2204@gmail.com">email</a>
-                            <a href="https://www.linkedin.com/in/jakercox/">linkedin</a>
-                        </div>
-                    </footer>
+                <div class="lake-bg" aria-hidden="true">
+                    <svg viewBox="0 0 800 721" focusable="false">
+                        <g class="isos">
+                            <path id="iso-10" d="M84-20l-1 17 2-2 1 2 0 11 0 3-2 4 2 4 0 12 3 10-1 8 2 5M104 76l5 3 4 1 1 2 0 9-1 5 0 4-2 6 0 3 1 3 5 1 2 1 2 3-2 2-3 1-1 1-2 5-6 10-7 21-3 17 0 8 1 4 2-5 2 0-3 16 0 15 2 9 1 13 1 11-1 7 2 5 0 4-5 34 0 6-3 9-1 19-3 12-1 6 2 5 3 9 8 7 7 9 6 18 3 5 7 15 17 25 2 2 10 3 4 3 0 1-3 7-1 3 0 2 3 7 2 1 3-1 3 1 2-1 2 0 2 3 4 11 4 2 0 5-1 4-2 1-2-1-1 1 1 2-1 5 4 5-4 4 3 6-2 2 1 1 0 2 0 4 0 1 3 6 1 0 2-1 4 2-3 6 0 9-1 2 1 6-1 2 2 1 1 3 2 3-1 4-2 3 4 4 0 7 1 1 0-2 1-1 2 1 1 5 2 2 0 3 2 1 0 3 2 3 1 5 2-3-1-3 1-1 1 1 1 7-3 6 3-2 1-9 1-1 1 2 1 7 1 2 1 1-2 0-2-1 0 3 4 0 0 1 2 3 0 3 3-1 0 7 1-1 0-3 1-2 1 5 6 6 1 0-2 2 0 2 1 3 1 0 0 4 1 0 1 3 2 1 1 2 1-1 0-5 4 3 2-2 2 0 3 2 1 0-2-4 1-2 1-4 1-1 1 1 2-3 1 3 1-6 2 3 4 0 0 1-2 0-1 2 0 2 3 0 1 1 0 1-1-1-1 1 1 8 1-1 1-3 1 1 0 2-2 3 1 3-2 4-4 4-4-4-2 3M245 660l1 3 6 9 3 3 5 2M310 680l28-7M347 669l11-3 15-6 42-20M431 629l24-14 18-11 25-19 12-10 7-5 10-13 16-18 9-14M558 512l7-26 15-32 3-6 4-17 2-3 17-20 16-22 15-24 12-24M649 337l13-35 8-27 5-13 7-29 2-17 0-10 6-28-1-4-3-10 0-5 3-7 4-6 3-19 1-20-1-17 0-7 0-14 1-19-1-7M696 41l-3-40-2-13-2-8M192 577l-1-2 0-8 1 4zM205 596l2-2 2 0-4-1zM229 638l1 2 2-1-4-5-2 0 0 2zM236 619l3 1 2-2-3-1-1-1-3-3-1 2 0 1zM238 621l0 2 2 3 5 3-3-9-1 1 1 4zM259 624l1 0-3-6zM516 564l2 0 2-1 0-3-1-1-2 0-2 2 0 2z"/>
+                            <path id="iso-20" d="M91-20l0 2 3 5-1 4 2-1 1 0 0 8 1 1 0-2 1 0 2 4 0 4 5 4 3 5 1 6 3 6 0 5 4 5 1 6 1 2 1 14 2-1 1-5 1 0 2 3 0 8 2 8 3 2-1 3 2 5-2 0-1 4 3 11 0 12 0 3 2 1 1 0-1 2 1 4-3 8 1 3 4 11 1 3-3 15-5 11-2 10-6 20-5 38-2 9-3 38 1 14-1 5 2 9-1 8 0 11 2 7 4 7 3 9 3 7 8 12 8 15 12 12 9 7 12 8 2 3 4 9 3 6 16 19 3 9 4 22 3 10 4 7 8 9 1 3 1 12 0 1 7 1 0-5 1 0 5 4 4 6 2 6 1 10 1 3 0 7 4 9 7 7 3-1 4 6 2 1 1-1-2 5 0 1 2 3 5 1 11 2 4-1 1-1 2 2 1 5 3-1 12 4-1 2-3 1-5-2-3 1-1 1 3 1 0 2-2 2-3-1 0 3 7 5 4 1-1 3 5 0 0 3 4 1 4 6 2 1 8 0 4 0 7-1 9 0 6-1 5-6 3-1 9 3 9 0 6-2 4-4 4-2 11 1 6-2 7-4 12-10 7-4 22-11 33-16 4-2 2-3 5-2 5-4 3-2 0-1 0-1 3-1 1-3 10-9 4-6 8-8 3-5 8-8 5-8 5-11 3-8 3-14 1-15 3-5 0-5 5-5 12-24 5-9 11-10 5-6 7-6 1-3 8-10 17-29 1-9 7-10 5-24 2-8 11-29 6-13 2-12 2-4 3-4 2-4-2-18 1-17 2-11 4-11 0-7 2-15 0-5 2-6 1-11 3-19-2-14 1-27-2-19 0-42-3-26"/>
+                            <path id="iso-30" d="M109-20l4 10 5 4 7 8 14 30 10 26 4 15 2 11 0 15-2 12-25 75-5 20-2 14 0 36 2 27 3 15-1 9 8 25 2 14 5 7 3 7 9 9 7 10 13 23 13 14 14 19 15 18 3 6 11 22 5 8 21 24 7 9 7 7 7 11 1 1 0 3 3 2 4 6 15 11 14 8 27 9 8 1 11 0 23-1 17-2 17-4 20-6 11-5 29-18 13-11 16-17 14-16 14-20 4-9 5-19 10-29 6-15 11-19 10-12 33-33 3-6 3-7 6-6 6-12 5-10 4-17 10-24 7-22 8-28 5-33 4-41 3-63 1-72-1-16-2-6-1-2"/>
+                            <path id="iso-40" d="M120-20l5 9 12 14 7 9 9 17 4 11 4 14 5 30 0 6-6 12-3 15-2 9-18 50-3 18-4 25-1 21 0 13 7 23 3 26 3 13 5 9 14 19 12 26 10 7 8 11-4 10 0 3 1 1 13 11 9 12 3 3 11 8 6 5 18 36 6 9 8 9 25 17 8 9 9 11 4 4 38 14 21 6 8 2 19 2 12-1 7-2 23-9 15-7 13-10 16-10 12-9 25-24 5-7 3-6 2-10 7-22 7-43 6-24 2-5 3-4 3-3 12-7 5-4 13-16 11-11 6-8 3-11 4-7 8-6 8-4 2-2 2-6 4-9 3-19 3-6 13-36 5-20 3-22 5-48 2-18 2-26 1-69-1-7-2-11-1-10"/>
+                            <path id="iso-50" d="M132-20l6 9 14 16 7 11 5 11 6 21 4 32 0 11-4 10-2 18-10 31-6 24-2 17-5 23-2 19 0 11 7 23 3 20 3 15 4 12 10 16 8 16 5 7 10 12 12 11 11 25 4 5 9 8 10 16 9 13 23 27 9 7 13 8 62 30 21 12 12 4 12 2 9 1 8-1 11-3 38-21 29-19 6-5 9-9 5-9 5-14 10-37 1-15-1-16 1-15 3-7 7-10 4-14 2-8 11-12 15-13 35-17 5-8 7-15 10-23 4-15 6-17 6-21 8-40 3-33 4-22 0-11-2-46 0-23-1-35"/>
+                            <path id="iso-60" d="M148-20l12 12 6 7 5 12 5 8 3 8-1 17 4 19 1 25-2 11-1 15 0 4-5 10-1 7-9 26-5 51-1 32 1 13 4 23 8 24 13 31 5 8 12 12 7 10 9 9 8 15 9 11 14 15 11 16 10 11 16 14 21 15 7 5 14 7 18 6 11 2 20 10 12 3 11 2 15-1 15 0 5-1 25-10 15-8 12-7 8-7 2-3 4-8 8-13 5-10 7-21 1-9-1-34 2-5 5-12 1-6 0-15 3-8 10-16 8-17 5-6 6-5 8-5 18-10 7-5 4-5 7-13 7-11 4-9 8-14 9-25 6-18 3-19 0-18 0-7 3-16 4-11 1-6 0-17-5-22-2-16 1-14 4-24-1-19"/>
+                            <path id="iso-70" d="M167-20l8 16 4 13 5 13 0 17 4 17 2 14-2 29 3 17-14 35-3 10-2 10-1 36-2 22 0 18 4 17 2 12 5 16 5 19 2 4 11 16 7 11 12 12 2 3 4 10 2 2 17 11 10 7 10 17 6 6 5 4 36 23 19 16 15 10 31 15 23 8 11 2 14-2 11 0 16-6 5-2 7-6 9-10 16-13 10-11 5-8 4-9 7-20 1-7 0-15-2-11 3-13 0-20 3-9 6-12 4-9 2-10-1-7 1-3 8-8 17-15 19-19 10-8 5-5 6-8 13-24 10-14 7-13 3-6 2-11-1-22 1-4 1-3 4-4 1-3 0-12 3-12 0-3-3-11 1-7-1-10-3-9-6-14-1-4 2-18 0-19 2-8 4-7 1-4"/>
+                            <path id="iso-80" d="M185-20l1 7 2 19 5 21 0 11 2 18 5 12 1 3-2 11 0 7 2 9 4 9 1 10-1 5-4 10-4 8-5 7-3 7 0 14-2 10-1 13 1 14-1 32 3 11 5 15 10 35 4 11 8 10 24 22 17 19 20 17 31 24 9 6 35 12 10 5 18 17 7 6 5 2 11 3 20 2 10-2 11-4 6-5 16-9 10-6 5-6 4-6 4-10 5-9 3-9 0-22 2-12-3-20 0-5 5-19 1-24 6-7 1-4-3-12-1-9 1-8 19-10 5-4 3-7 17-9 5-4 8-21 6-7 8-6 4-5 2-4 0-5 1-2 6-4 5-5 2-5 0-6 2-7 12-12 7-12 2-7-1-3-1-3-6-7-14-14-10-4-20-3-2-1 0-2 0-3 2-3 9-7 2-3 4-11 13-18 2-4 1-3 0-8 2-9 0-8 2-5 3-5M370-20l-3 2-9 1-18-3"/>
+                            <path id="iso-90" d="M580-20l-12 8-6 6-1 3-2 9-2 5-5 5-11 9-2 3-1 2 1 6-1 2-15 6-3 3 0 2 0 1 3 6 0 2-3 8 1 3 2 2 11 7 11 10 11 8 3 4-1 4-4 13-1 6 1 8 2 9 0 4-3 5-7 6-4 9-17 16-6 7-4 8-6 15-8 10-3 6 0 9 0 3-5 6 0 2 0 10-1 17-3 13-1 21-4 22 1 5 4 12 2 5-1 7-3 13-1 10-6 13-5 5-4 2-22 9-20 6-10 3-5-2-43-25-21-8-44-21-19-12-19-13-16-15-13-16-5-7-10-19-3-15-1-5-18-22 3-6 1-5-1-9 2-14 0-6-3-28 0-20 2-6 9-11 4-10 1-5-1-12-5-24-1-14-6-13-1-11 0-12-1-5-3-7-1-4 0-14 4-23M401-20l-3 16 5 7 0 2-2 2-5 1-9-1-14 5-15 1-9-1-4 0-3-2-2-3-5-13-3-4-3-3-10-7"/>
+                            <path id="iso-100" d="M532-20l-20 10-1-1-1-7-2-1-3 1-12 8-5 2-3 0-6-6-2 0-4 3-1 2 5 10 0 2-12 11 0 5 1 6 7 11 3 10 2 2 15 8 12 13 16 12 17 15 2 4 2 13-2 7-4 8-4 4-10 7-3 4-7 7-4 4-3 12-12 25-5 20-6 11-1 5 2 6-8 11 0 2 1 2 6 4 1 8 0 12-3 17-1 25-4 15 1 4 3 4 2 8 2 4 0 4-1 4-3 3-7 6-2 3-7 19-2 4-4 2-14-3-8 0-11 2-4-1-8-7-7-9-12-11-17-14-11-7-10 0-14 4-13-1-5-1-14-4-15-7-7-3-11-9-8-10-10-19-13-13-2-5-6-20-8-13-4-7-1-16 0-11-6-28 0-18-4-11 0-4 1-4 4-5 11-14 2-3 2-5 0-9-6-25-3-13-4-8-2-7 0-5 2-5 4-8 4-3 4-1 19-3 13-3 18-5 19-7 9-2 13 0 38 4 9-1 10-2 7-1 12 4 6 0 7 0 12-4 3 0 3 2 5 4 4 0 1-1 2-2 0-6-3-4-6-3-1-2 1-2 3-4 9-8 7-7M250 24l11-3 4-1 1-1-6-3-20-3-5 1-4 3 1 3 2 2 7 2z"/>
+                            <path id="iso-110" d="M239 179l4 16 4 12 2 9 3 10-2 10 1 4 3 5 10 10 4 5 8 14 11 24 7 10 6 6 2 2 7 2 19 5 16 1 25-1 9 2 16 8 8 9 13 10 12 5 13 2 12 1 10-1 7-1 2-1 1-2 2-5-1-6-4-9-1-7 5-10-1-18-2-13 4-21 0-8-1-4-3-8 0-2 4-11 0-10 6-12 2-8 2-12 5-15 1-9 4-8 3-14-1-6 1-5 3-4 3-4 17-8 5-4 5-8 1-4 0-5-5-7-13-9-20-12-18-13-14-7-3-2-7-10-4-3-9-5-10-3-12-3-35 0-26-2-23 0-15 2-10 4-11 5-8 6-6 8-2 4-4 16-8 12-9 14-4 7-6 19-6 8-1 2 1 7-4 4-11 7-1 2 0 5 8 15z"/>
+                            <path id="iso-120" d="M252 152l-1-3 8-6 3-6 0-3-3-8 1-4 4-8 5-14 7-11 6-13 3-3 10-3 2-3 0-9 1-2 7-8 6-10 3-3 9-4 10-3 16 0 38 2 11 2 16-1 8 2 11 5 8 8 14 8 17 13 9 5 12 3 4 3 7 8 5 5 2 5 0 4-3 5-19 18-3 6-1 2 1 7 2 6-2 9-1 10-3 11-5 26-5 14-5 10 0 11-1 3-6 13-2 6 0 5 1 12 0 2-2 5-1 7 4 17 1 9-1 4-4 6-6 5-3 1-9 1-7-2-16-5-31-15-14-3-38-3-18-7-8-5-5-8-3-17-2-5-6-10-12-14-3-13-5-13-4-13-2-2-4-5-2-4-1-3 3-14 0-6-3-6z"/>
+                            <path id="iso-130" d="M276 146l-4 7-1 4 2 2 12 6 3 36 7 20 1 15 7 15 7 9 10 6 9 3 35 2 8 2 14 3 12 5 8 6 8 8 13 6 6 1 5 0 4-1 3-2 3-15 2-5 3-6 1-5-3-11-7-10 7-11 8-17 14-21-3-8 6-24-1-14 3-8 1-8 9-24 3-12 0-6 0-6-5-7-6-5-19-9-16-13-11-6-12-5-5-1-31-2-29-6-5 0-3 1-18 7-10 5-2 2-2 7-1 13-17 10-8 8-3 4-4 8 0 4-3 8-7 10 0 2 1 4 4 5 1 5z"/>
+                            <path id="iso-140" d="M301 130l6 5 0 3-2 5-9 8-2 3-1 3 2 3 9 4 3 3 0 6 2 8 2 10-2 16 2 3 8 9 0 2 0 3-5 5-1 3 0 5 2 3 3 3 4 1 43 2 13 3 18 2 7 4 9 7 6 2 8 2 2-1 4-4 6-8 2-9 3-8 1-10 12-23 3-9 2-9 7-15 0-16 1-2 4-8 1-3-2-12 3-7 8-14 3-8 0-5-3-5-3-3-29-19-16-14-27-4-19-1-55 2-5 3-1 3 1 3 5 5 1 3-5 5-23 18-4 6-1 3-1 9-2 5-3 3-2 4 0 2 2 3z"/>
+                            <path id="iso-150" d="M326 160l8 4 5 3 4 7 9 22 3 6 4 5 5 4 6 3 8 5 2 3 1 3 3 3 11 8 20 9 3 1 4-1 8 0 4-3 3-5 4-14 5-14 2-12 3-7 1-7 3-9 1-7 0-11 2-13-4-9 0-4 2-4 7-5 5-7 2-9 0-7-1-2-7-9-14-12-15-9-8-3-11 0-7-1-12 1-5 2-6 4-5 2-5 0-7-1-13-7-5 0 0 1 4 5 1 4-11 14-3 8-1 7-4 7-7 9-1 7 0 2 3 2 19 5 2 2 0 2-1 2-7 5-22 11 0 2z"/>
+                            <path id="iso-160" d="M383 154l7 4 4 2-1 19 0 6 3 2 8 3 2 3-1 4-5 6 0 3 7 3 12 2 4 4 5 6 1 0 3-1 1-2-2-7 2-4 6-7 1-6-2-8 0-5-3-7 4-14 2-12-1-10-3-7 0-5 7-10-5-13-5-8-9-12-6-4-8-1-16 2-6 5-4 5-8 19-1 8 1 5 3 5 11 10 0 2-2 2-9 5-2 2 0 1 0 1z"/>
+                        </g>
+                        <path class="shore" d="M694-20l2 40 1 12 2 10 2 6 3 2 1 3 0 3-1 3-3 3-2 6 0 11 3 46 0 12-1 7-3 4-3 10-2 14-7 65-2 14-3 10-2 4-6 15-8 35-4 8-3 6-6 7-2 8 1 4-4 9-8 12-38 55-8 12-4 9-1 8-2 4-9 14-7 15-5 17-5 9-2 1-2 2-2 4-2 11-4 8-8 10-10 12-14 14-26 24-13 9-12 8-21 11-19 6-4 3-4 3-2 4-4 4-18 9-22 9-6 3-3 3 0 3-2 1-3 0-15-6-3 0-1 1 0 4-1 2-4 4-8 2-11 0-38-2-34-3-2-1-3-4-2-7 0-3 1-2 2-1 6 0 1-2-6-2-22-2-6-2-4-2-3-3-3-7-1-8-3-9-2-4-8-7-3-2-5-2 0-1 4-4 0-3-1-4-11-19-3-7-3-26-6-25-9-28-3-12-2-18-1-7-3-4-3-3-4-1-4-2-3-3-8-14-3-2-3-2-3 0-1-1 0-2 5-10 0-2-2-1-2 0-4-4-4-7-11-26-3-17-1-21 2-24 4-28 1-23 0-20-2-16-3-12-3-9 0-6 1-2 5 1 1 0 1-3-1-2-2-1-7-2-3-1 0-3 7-14 2-6 1-12 3-11 7-9 2-6 2-8 0-11-1-12-2-10-3-6-4-3-5 0-3-1-1-2 1-3 5-7 0-2-1-1-3 0-2-4-2-6-3-32-2-9-3-8-8-16"/>
+                        <g class="hits">
+                            <use href="#iso-10" data-depth="10"/>
+                            <use href="#iso-20" data-depth="20"/>
+                            <use href="#iso-30" data-depth="30"/>
+                            <use href="#iso-40" data-depth="40"/>
+                            <use href="#iso-50" data-depth="50"/>
+                            <use href="#iso-60" data-depth="60"/>
+                            <use href="#iso-70" data-depth="70"/>
+                            <use href="#iso-80" data-depth="80"/>
+                            <use href="#iso-90" data-depth="90"/>
+                            <use href="#iso-100" data-depth="100"/>
+                            <use href="#iso-110" data-depth="110"/>
+                            <use href="#iso-120" data-depth="120"/>
+                            <use href="#iso-130" data-depth="130"/>
+                            <use href="#iso-140" data-depth="140"/>
+                            <use href="#iso-150" data-depth="150"/>
+                            <use href="#iso-160" data-depth="160"/>
+                        </g>
+                        <g class="chi" transform="translate(166.4 549.5)">
+                            <rect class="chi-hit" x="-18" y="-18" width="144" height="36"/>
+                            <polygon class="chi-star" style="--x:0px" points="0.0,-15.0 3.2,-5.6 13.0,-7.5 6.5,-0.0 13.0,7.5 3.2,5.6 0.0,15.0 -3.2,5.6 -13.0,7.5 -6.5,0.0 -13.0,-7.5 -3.3,-5.6"/>
+                            <polygon class="chi-star" style="--x:36px" points="0.0,-15.0 3.2,-5.6 13.0,-7.5 6.5,-0.0 13.0,7.5 3.2,5.6 0.0,15.0 -3.2,5.6 -13.0,7.5 -6.5,0.0 -13.0,-7.5 -3.3,-5.6"/>
+                            <polygon class="chi-star" style="--x:72px" points="0.0,-15.0 3.2,-5.6 13.0,-7.5 6.5,-0.0 13.0,7.5 3.2,5.6 0.0,15.0 -3.2,5.6 -13.0,7.5 -6.5,0.0 -13.0,-7.5 -3.3,-5.6"/>
+                            <polygon class="chi-star" style="--x:108px" points="0.0,-15.0 3.2,-5.6 13.0,-7.5 6.5,-0.0 13.0,7.5 3.2,5.6 0.0,15.0 -3.2,5.6 -13.0,7.5 -6.5,0.0 -13.0,-7.5 -3.3,-5.6"/>
+                        </g>
+                    </svg>
                 </div>
-            </div>
-        </div>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- WORK                                       -->
-        <!-- ══════════════════════════════════════════ -->
-        <div class="panel" id="panel-work" role="tabpanel" aria-labelledby="tab-work">
-            <div class="aud-layout">
-                <div class="aud-sidebar">
-                    <div class="aud-sidebar-head">
-                        <h2 class="aud-sidebar-title">Selected work</h2>
-                        <div class="aud-sidebar-sub">Product and audience projects: what the problem was, what I did, what it moved.</div>
+                <div class="hero">
+                    <h1 class="hero-name">Jake Cox</h1>
+                    <p class="hero-lede">News product manager. I work on what an audience touches, like games, newsletters and news aggregator feeds, and the measurement and email plumbing underneath.</p>
+                    <p class="hero-detail">I'm a news product manager at <strong>Michigan Public</strong> through <strong>The Magpie Project</strong>, working across audio and podcasts, personalization, analytics, newsletters and games. Before that, I produced <strong>Block Club Chicago</strong>'s daily newsletters for lists totaling 130,000 subscribers and ran digital at <strong>The DePaulia</strong>. The reporting I did along the way won three Peter Lisagor Awards and a Crystal Pillar at the 2026 Chicago/Midwest Emmy Awards.</p>
+                    <div class="hero-actions">
+                        <a href="mailto:coxja2204@gmail.com" class="btn btn-primary">Email me</a>
+                        <a href="jake-cox-resume.pdf" class="btn" download>Download resume (PDF)</a>
+                        <span class="availability">Available for full-time and contract work.</span>
                     </div>
-                    <div class="aud-list" role="tablist" aria-orientation="vertical" aria-label="Case studies">
-                        <button class="aud-item selected" type="button" role="tab" id="audtab-whatsapp" aria-controls="aud-whatsapp" aria-selected="true" data-aud="whatsapp">
-                            <div class="aud-item-meta"><span>2025</span><span>Block Club</span></div>
-                            <div class="aud-item-title">WhatsApp Channel Launch</div>
-                            <div class="aud-item-preview">3,200+ subscribers in six weeks</div>
+                </div>
+
+                <div class="home-section">
+                    <h2 class="sec-head">Selected work</h2>
+                    <ul class="inbox">
+                        <li><a class="msg unread" href="#work/whatsapp">
+                            <span class="msg-dot"><span class="visually-hidden">Featured: </span></span>
+                            <span class="msg-from">Block Club Chicago</span>
+                            <span class="msg-line"><span class="msg-subject">WhatsApp channel for immigration coverage</span><span class="msg-preview">3,200+ subscribers in six weeks during Operation Midway Blitz</span></span>
+                            <span class="msg-date">2025</span>
+                        </a></li>
+                        <li><a class="msg" href="#work/newsletters">
+                            <span class="msg-dot"></span>
+                            <span class="msg-from">Block Club Chicago</span>
+                            <span class="msg-line"><span class="msg-subject">Daily newsletter production</span><span class="msg-preview">25+ editions a week across lists totaling 130,000+ subscribers</span></span>
+                            <span class="msg-date">2025&ndash;26</span>
+                        </a></li>
+                        <li><a class="msg" href="#work/betting">
+                            <span class="msg-dot"></span>
+                            <span class="msg-from">NBC5 Chicago</span>
+                            <span class="msg-line"><span class="msg-subject">Sports-betting tax calculator</span><span class="msg-preview">A news app for a Lisagor-winning, Emmy-nominated investigation</span></span>
+                            <span class="msg-date">2025</span>
+                        </a></li>
+                        <li><a class="msg" href="#work/instagram">
+                            <span class="msg-dot"></span>
+                            <span class="msg-from">The DePaulia</span>
+                            <span class="msg-line"><span class="msg-subject">Instagram growth</span><span class="msg-preview">+53% followers and 250K+ organic views from short-form video</span></span>
+                            <span class="msg-date">2024&ndash;25</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="home-split">
+                    <div>
+                        <h2 class="sec-head">Reporting</h2>
+                        <p class="sec-intro">Civic, arts and LGBTQ+ stories from Block Club and The DePaulia.</p>
+                        <ul class="clips">
+                            <li>
+                                <a href="https://blockclubchicago.org/2025/06/12/the-windy-city-times-told-lgbtq-stories-when-no-one-else-would-40-years-later-theyre-still-at-it/" target="_blank" rel="noopener">The Windy City Times Told LGBTQ+ Stories When No One Else Would. 40 Years Later, They're Still At It</a>
+                                <span class="clip-source">Block Club Chicago, June 2025</span>
+                            </li>
+                            <li>
+                                <a href="https://blockclubchicago.org/2025/10/22/resilience-arts-fest-to-showcase-stories-from-prison-and-beyond-art-humanizes-people/" target="_blank" rel="noopener">Resilience Arts Fest To Showcase Stories From Prison And Beyond: 'Art Humanizes People'</a>
+                                <span class="clip-source">Block Club Chicago, October 2025</span>
+                            </li>
+                            <li>
+                                <a href="https://blockclubchicago.org/2025/07/29/queer-radical-fair-returns-celebrating-acceptance-through-fashion/" target="_blank" rel="noopener">Queer Radical Fair Returns, Celebrating Acceptance Through Fashion</a>
+                                <span class="clip-source">Block Club Chicago, July 2025</span>
+                            </li>
+                            <li>
+                                <a href="https://depauliaonline.com/71546/news/campusnews/thats-not-doing-security-to-me-privately-contracted-security-guard-relocated-off-depaul-campus/" target="_blank" rel="noopener">'That's not doing security to me': Security guard relocated off DePaul campus</a>
+                                <span class="clip-source">The DePaulia, September 2024. ACP 4th place, Best News Story</span>
+                            </li>
+                            <li>
+                                <a href="https://depauliaonline.com/75464/artslife/james-baldwins-enduring-legacy-on-display-at-depaul/" target="_blank" rel="noopener">James Baldwin's enduring legacy on display at DePaul</a>
+                                <span class="clip-source">The DePaulia, February 2025</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="sec-head">Newsletters</h2>
+                        <p class="sec-intro">Editions I wrote and built at Block Club Chicago.</p>
+                        <ul class="inbox inbox-compact">
+                            <li><a class="msg" href="newsletters/afternoon-digest-2026-01-09.html" target="_blank">
+                                <span class="msg-line"><span class="msg-subject">Afternoon Digest</span><span class="msg-preview">Block Club Chicago</span></span>
+                                <span class="msg-date">Jan 9, 2026</span>
+                            </a></li>
+                            <li><a class="msg" href="newsletters/proud-city-holiday-2025.html" target="_blank">
+                                <span class="msg-line"><span class="msg-subject">Proud City, holiday edition</span><span class="msg-preview">Block Club Chicago</span></span>
+                                <span class="msg-date">Dec 2025</span>
+                            </a></li>
+                            <li><a class="msg" href="newsletters/proud-city-2025-06-12.html" target="_blank">
+                                <span class="msg-line"><span class="msg-subject">Proud City</span><span class="msg-preview">Block Club Chicago</span></span>
+                                <span class="msg-date">Jun 12, 2025</span>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════ WORK ══════════════ -->
+        <section class="panel" id="panel-work" role="tabpanel" aria-labelledby="tab-work" tabindex="0">
+            <div class="work-layout">
+                <div class="work-list">
+                    <div class="work-list-head">
+                        <h2>Selected work</h2>
+                        <p>What the problem was, what I did, what it moved.</p>
+                    </div>
+                    <div class="aud-items" role="tablist" aria-orientation="vertical" aria-label="Case studies">
+                        <button class="aud-item unread" type="button" role="tab" id="audtab-whatsapp" aria-controls="aud-whatsapp" aria-selected="true" data-aud="whatsapp">
+                            <span class="msg-dot"><span class="visually-hidden">Featured: </span></span>
+                            <span class="msg-from">Block Club Chicago</span>
+                            <span class="msg-date">2025</span>
+                            <span class="msg-subject">WhatsApp channel launch</span>
+                            <span class="msg-preview">3,200+ subscribers in six weeks</span>
                         </button>
                         <button class="aud-item" type="button" role="tab" id="audtab-newsletters" aria-controls="aud-newsletters" aria-selected="false" tabindex="-1" data-aud="newsletters">
-                            <div class="aud-item-meta"><span>2025 &mdash; 2026</span><span>Block Club</span></div>
-                            <div class="aud-item-title">Newsletter Production</div>
-                            <div class="aud-item-preview">25+ editions weekly, 130,000+ subscribers</div>
+                            <span class="msg-dot"></span>
+                            <span class="msg-from">Block Club Chicago</span>
+                            <span class="msg-date">2025&ndash;26</span>
+                            <span class="msg-subject">Daily newsletter production</span>
+                            <span class="msg-preview">25+ editions a week, 130,000+ subscribers</span>
                         </button>
                         <button class="aud-item" type="button" role="tab" id="audtab-betting" aria-controls="aud-betting" aria-selected="false" tabindex="-1" data-aud="betting">
-                            <div class="aud-item-meta"><span>2025</span><span>NBC 5 / CJIE</span></div>
-                            <div class="aud-item-title">Sports Betting Tax Calculator</div>
-                            <div class="aud-item-preview">A news app for a Lisagor-winning investigation</div>
+                            <span class="msg-dot"></span>
+                            <span class="msg-from">NBC5 Chicago</span>
+                            <span class="msg-date">2025</span>
+                            <span class="msg-subject">Sports-betting tax calculator</span>
+                            <span class="msg-preview">A news app for a Lisagor-winning investigation</span>
                         </button>
                         <button class="aud-item" type="button" role="tab" id="audtab-instagram" aria-controls="aud-instagram" aria-selected="false" tabindex="-1" data-aud="instagram">
-                            <div class="aud-item-meta"><span>2024 &mdash; 2025</span><span>DePaulia</span></div>
-                            <div class="aud-item-title">Instagram Growth</div>
-                            <div class="aud-item-preview">+53% followers, 250K+ organic views</div>
+                            <span class="msg-dot"></span>
+                            <span class="msg-from">The DePaulia</span>
+                            <span class="msg-date">2024&ndash;25</span>
+                            <span class="msg-subject">Instagram growth</span>
+                            <span class="msg-preview">+53% followers, 250K+ organic views</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="aud-detail">
+                <div class="work-detail" id="work-detail">
 
                     <!-- WhatsApp -->
-                    <div class="aud-detail-panel active" id="aud-whatsapp" role="tabpanel" aria-labelledby="audtab-whatsapp">
-                        <div class="aud-detail-meta">Block Club Chicago &middot; 2025</div>
-                        <h3 class="aud-detail-title">WhatsApp Channel Launch</h3>
-                        <div class="aud-detail-org">Immigration news distribution</div>
+                    <article class="aud-detail-panel active" id="aud-whatsapp" role="tabpanel" aria-labelledby="audtab-whatsapp" tabindex="0">
+                        <h3 class="mail-subject">WhatsApp channel launch</h3>
+                        <div class="mail-meta">
+                            <div class="mail-from"><strong>Block Club Chicago</strong> <span>Immigration news distribution</span></div>
+                            <time>October 2025</time>
+                        </div>
 
                         <div class="case-image">
-                            <img src="images/whatsapp_mockups.jpg" alt="Block Club Chicago WhatsApp broadcast channel">
+                            <img src="images/whatsapp_mockups.jpg" alt="Block Club Chicago WhatsApp broadcast channel on two phones" width="1600" height="900">
                         </div>
 
-                        <div class="case-section-head">The opportunity</div>
+                        <h4 class="case-head">The problem</h4>
                         <div class="case-body">
-                            <p>When federal immigration agents arrived in Chicago for Operation Midway Blitz in fall 2025, Block Club's reporters published more than 230 immigration stories in three months. Months earlier, I'd pitched WhatsApp as a way to reach Spanish-speaking readers on the Southwest Side. The raids made it urgent.</p>
+                            <p>About three months before federal immigration agents arrived in Chicago for Operation Midway Blitz in fall 2025, I'd pitched WhatsApp as a way to reach Spanish-speaking readers on the Southwest Side. The raids made it urgent.</p>
+                            <p>In 2021, Pew found Hispanic Americans used WhatsApp at 46%, far above other groups, and it mirrors how many residents already organize: family threads, group chats, local broadcasts. A broadcast channel is one-way, so readers get the news without it turning into a group chat.</p>
                         </div>
 
-                        <div class="case-section-head">Why WhatsApp?</div>
-                        <div class="case-body">
-                            <p>Pew found Hispanic Americans use WhatsApp at 46%, far above other groups, and it mirrors how many residents already organize: family threads, group chats, local broadcasts. A broadcast channel is one-way, so readers get the news without it turning into a group chat.</p>
-                        </div>
-
-                        <div class="case-section-head">What I did</div>
+                        <h4 class="case-head">What I did</h4>
                         <ul class="case-list">
                             <li>Set the channel up on a newsroom phone so it wasn't tied to one staffer's number, with editor review before every post</li>
                             <li>Settled on a format of one to three already-published stories plus a strong photo, which one person could build in minutes</li>
@@ -1259,126 +804,306 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <li>Promoted it through our newsletters, a launch story and social</li>
                         </ul>
 
-                        <div class="case-section-head">Results</div>
-                        <div class="stat-row stat-row-single">
-                            <div class="stat-card"><span class="stat-value">3,200+</span><span class="stat-label">subscribers in six weeks after the Oct. 8, 2025 launch</span></div>
-                                                    </div>
+                        <h4 class="case-head">What moved</h4>
+                        <div class="stats">
+                            <div class="stat"><span class="stat-value">3,200+</span><span class="stat-label">subscribers in the six weeks after the Oct. 8 launch</span></div>
+                        </div>
 
-                        <div class="case-section-head">What I'd do differently</div>
+                        <h4 class="case-head">What I'd change</h4>
                         <div class="case-body">
                             <p>WhatsApp only shows 30 days of reach and follower data, and subscribers are anonymous. I'd build our own tracking into the links from day one. I'd also set a recurring reminder once we dropped below daily posting, because a channel that isn't part of the daily workflow slips.</p>
                         </div>
 
-                        <div class="case-section-head">Recognition</div>
-                        <p class="case-recognition">The American Journalism Project, Northwestern's Medill School and the Knight Foundation each wrote about the channel, and Reuters mentioned it in a report on student journalists covering ICE.</p>
+                        <h4 class="case-head">Recognition</h4>
+                        <div class="case-body">
+                            <p>The American Journalism Project, the Medill Solutions Journalism Hub and the Knight Foundation each wrote about the channel, and Reuters mentioned it in a report on student journalists covering ICE. I also presented the channel to the Newspack community.</p>
+                        </div>
 
-                        <a href="https://newspack.com/reach-new-audiences-with-whatsapp/" class="case-feature-link" target="_blank" rel="noopener">
-                            <div class="case-feature-meta">Written for Newspack</div>
-                            <div class="case-feature-title">Read my full write-up on how we built the channel</div>
+                        <a href="https://newspack.com/reach-new-audiences-with-whatsapp/" class="link-card" target="_blank" rel="noopener">
+                            <small>Written for Newspack</small>
+                            <span>Read my full write-up on how we built the channel</span>
                         </a>
-                    </div>
+                    </article>
 
-                    <!-- Newsletter Production -->
-                    <div class="aud-detail-panel" id="aud-newsletters" role="tabpanel" aria-labelledby="audtab-newsletters">
-                        <div class="aud-detail-meta">Block Club Chicago &middot; 2025 &mdash; 2026</div>
-                        <h3 class="aud-detail-title">Newsletter Production</h3>
-                        <div class="aud-detail-org">Newsletter desk &middot; 25+ editions weekly &middot; 130,000+ subscribers</div>
+                    <!-- Newsletter production -->
+                    <article class="aud-detail-panel" id="aud-newsletters" role="tabpanel" aria-labelledby="audtab-newsletters" tabindex="0">
+                        <h3 class="mail-subject">Daily newsletter production</h3>
+                        <div class="mail-meta">
+                            <div class="mail-from"><strong>Block Club Chicago</strong> <span>Newsletter desk</span></div>
+                            <time>2025&ndash;2026</time>
+                        </div>
 
                         <div class="case-image">
-                            <img src="images/newsletter_mockups.jpg" alt="Block Club Chicago newsletter editions">
+                            <img src="images/newsletter_mockups.jpg" alt="Block Club Chicago newsletter editions on phones" width="1600" height="900" loading="lazy">
                         </div>
 
-                        <div class="case-section-head">What I did</div>
+                        <h4 class="case-head">The problem</h4>
+                        <div class="case-body">
+                            <p>Block Club sends more than 25 editions a week across lists totaling more than 130,000 subscribers, most of them reading on a phone. Each one has to tell a reader what matters in their neighborhood in a few seconds, and the day's coverage keeps changing after the edition is drafted.</p>
+                        </div>
+
+                        <h4 class="case-head">What I did</h4>
                         <ul class="case-list">
-                            <li>Wrote and edited daily editions, packaging reporters' stories for people reading on a phone in line for coffee</li>
-                            <li>A/B tested subject lines against open rate, CTR and CTOR, and kept what worked instead of what sounded clever</li>
+                            <li>Wrote and edited daily editions, packaging reporters' stories for a phone screen</li>
+                            <li>A/B tested subject lines against open rate, CTR and CTOR</li>
+                            <li>Used Chartbeat daily to track engagement and choose which stories to feature</li>
                             <li>Made the hierarchy calls: what leads, what gets a callout, what context a reader needs before the link</li>
-                            <li>Built custom designs for large features and original service, arts and civic pieces</li>
+                            <li>Designed custom email layouts, adapted from Block Club's templates, for large features and original service, arts and civic pieces</li>
+                            <li>Worked with the revenue team on donor emails that wove personal stories into their recommended asks, and on ad emails that advertisers bought</li>
                         </ul>
 
-                        <div class="case-section-head">Results</div>
-                        <div class="stat-row stat-row-single">
-                            <div class="stat-card"><span class="stat-value">130,000+</span><span class="stat-label">subscribers per send</span></div>
+                        <h4 class="case-head">What moved</h4>
+                        <div class="stats">
+                            <div class="stat"><span class="stat-value">25+</span><span class="stat-label">editions a week</span></div>
+                            <div class="stat"><span class="stat-value">130,000+</span><span class="stat-label">subscribers across all lists</span></div>
+                            <div class="stat"><span class="stat-value">3K&ndash;90K</span><span class="stat-label">readers per send, depending on the list</span></div>
+                        </div>
+                    </article>
+
+                    <!-- Sports betting -->
+                    <article class="aud-detail-panel" id="aud-betting" role="tabpanel" aria-labelledby="audtab-betting" tabindex="0">
+                        <h3 class="mail-subject">Sports-betting tax calculator</h3>
+                        <div class="mail-meta">
+                            <div class="mail-from"><strong>NBC5 Chicago and DePaul's Center for Journalism Integrity and Excellence</strong> <span>Interactive news app, HTML and JavaScript</span></div>
+                            <time>2025</time>
                         </div>
 
-                        <div class="case-takeaway">Sending to 130,000 people every day is the fastest feedback loop in the building. It's where I learned to read a number and change something the next morning.</div>
-                    </div>
+                        <h4 class="case-head">The problem</h4>
+                        <div class="case-body">
+                            <p>Illinois added a per-wager tax on online sports bets, charged to the sportsbooks. A charge on every bet is hard to picture from a story alone, so the calculator shows readers what it could cost them, based on how they bet, if sportsbooks passed it straight through.</p>
+                        </div>
 
-                    <!-- Sports Betting -->
-                    <div class="aud-detail-panel" id="aud-betting" role="tabpanel" aria-labelledby="audtab-betting">
-                        <div class="aud-detail-meta">DePaul CJIE / NBC 5 Chicago &middot; 2025</div>
-                        <h3 class="aud-detail-title">Sports Betting Tax Calculator</h3>
-                        <div class="aud-detail-org">Interactive news app &middot; HTML + JavaScript</div>
-
-                        <div class="case-section-head">The problem</div>
-                        <div class="case-body"><p>Illinois added a per-wager tax on online sports bets. A charge on every bet is hard to picture from a story alone, so the calculator lets readers see what it would cost them based on how they bet.</p></div>
-
-                        <div class="case-section-head">What I did</div>
+                        <h4 class="case-head">What I did</h4>
                         <ul class="case-list">
-                            <li>Led data analysis and fact-checking on the investigation with NBC 5 Chicago's I-Team</li>
-                            <li>Built a calculator that lets a bettor enter how they bet and see what the tax takes</li>
+                            <li>Led data analysis and fact-checking on the investigation with NBC5 Chicago's I-Team</li>
+                            <li>Built a calculator that lets bettors enter how they bet and see what the tax could cost them if it were passed on</li>
                             <li>Shipped it alongside the story so readers could go straight from the reporting to their own numbers</li>
                         </ul>
 
-                        <div class="case-section-head">Recognition</div>
-                        <p class="case-recognition">The investigation won a Chicago Headline Club Peter Lisagor Award and was nominated for a 2026 Chicago/Midwest Emmy in College Student Production: Sports.</p>
+                        <h4 class="case-head">Recognition</h4>
+                        <div class="case-body">
+                            <p>The investigation won the 2026 Chicago Headline Club Peter Lisagor Award for Best Politics &amp; Government Reporting (Student) and was nominated for a 2026 Chicago/Midwest Emmy in College Student Production: Sports.</p>
+                        </div>
 
                         <div class="case-links">
-                            <a class="case-link" href="https://www.nbcchicago.com/chicago-sports-bears-sox-cubs-bulls-blackhawks/illinois-quietly-increases-cost-of-online-betting-and-chicago-may-be-next/3852846/" target="_blank" rel="noopener">Read the investigation</a>
-                            <a class="case-link" href="https://github.com/jakec04/wagering-tax-app" target="_blank" rel="noopener">View the repo</a>
+                            <a href="https://www.nbcchicago.com/chicago-sports-bears-sox-cubs-bulls-blackhawks/illinois-quietly-increases-cost-of-online-betting-and-chicago-may-be-next/3852846/" target="_blank" rel="noopener">Read the investigation</a>
+                            <a href="https://github.com/jakec04/wagering-tax-app" target="_blank" rel="noopener">View the repo</a>
                         </div>
-                    </div>
+                    </article>
 
                     <!-- Instagram -->
-                    <div class="aud-detail-panel" id="aud-instagram" role="tabpanel" aria-labelledby="audtab-instagram">
-                        <div class="aud-detail-meta">The DePaulia &middot; 2024 &mdash; 2025</div>
-                        <h3 class="aud-detail-title">DePaulia Instagram Growth</h3>
-                        <div class="aud-detail-org">Social media strategy &amp; content workflow</div>
-                        <div class="case-section-head">Results</div>
-                        <div class="stat-row">
-                            <div class="stat-card"><span class="stat-value">+2,000</span><span class="stat-label">new followers (53% increase)</span></div>
-                            <div class="stat-card"><span class="stat-value">250K+</span><span class="stat-label">organic views</span></div>
+                    <article class="aud-detail-panel" id="aud-instagram" role="tabpanel" aria-labelledby="audtab-instagram" tabindex="0">
+                        <h3 class="mail-subject">Instagram growth</h3>
+                        <div class="mail-meta">
+                            <div class="mail-from"><strong>The DePaulia</strong> <span>Social strategy and content workflow</span></div>
+                            <time>2024&ndash;2025</time>
                         </div>
-                        <div class="case-section-head">What I did</div>
+
+                        <h4 class="case-head">The problem</h4>
+                        <div class="case-body">
+                            <p>The students I talked to were getting their news from short-form video. The DePaulia's Instagram needed to meet them there, with a workflow a rotating student staff could keep running after I left.</p>
+                        </div>
+
+                        <h4 class="case-head">What I did</h4>
                         <ul class="case-list">
                             <li>Created short-form videos and grid posts for breaking news, explainers and feature stories</li>
                             <li>Adapted stories for platform-specific formats as industry standards changed</li>
                             <li>Built a repeatable content workflow for a student newsroom that outlasted my tenure</li>
                         </ul>
-                        <div class="case-section-head">Examples</div>
+
+                        <h4 class="case-head">What moved</h4>
+                        <div class="stats">
+                            <div class="stat"><span class="stat-value">+2,000</span><span class="stat-label">new followers, a 53% increase</span></div>
+                            <div class="stat"><span class="stat-value">250K+</span><span class="stat-label">organic views</span></div>
+                        </div>
+
+                        <h4 class="case-head">Examples</h4>
                         <div class="insta-grid">
-                            <a href="https://www.instagram.com/p/DGW78JCOmV1/" target="_blank" rel="noopener"><img src="images/explainergrid.jpg" alt="DePaulia explainer Instagram post" loading="lazy"></a>
-                            <a href="https://www.instagram.com/p/DPjQOjyDAo3/" target="_blank" rel="noopener"><img src="images/knowyourrightsgrid.jpg" alt="Know Your Rights Instagram post" loading="lazy"></a>
-                            <a href="https://www.instagram.com/p/DCfTi1Ppc2B/" target="_blank" rel="noopener"><img src="images/featuregrid.jpg" alt="DePaulia feature story Instagram post" loading="lazy"></a>
-                            <a href="https://www.instagram.com/reel/DE5qkbFJATd/" target="_blank" rel="noopener"><img src="images/reelexamplecta.jpg" alt="Instagram Reel with call to action" loading="lazy"></a>
-                            <a href="https://www.instagram.com/reel/C__HRT3P8zy/" target="_blank" rel="noopener"><img src="images/reelexampleprojest.jpg" alt="Instagram Reel project example" loading="lazy"></a>
-                            <a href="https://www.instagram.com/reel/C-34HW5PrbS/" target="_blank" rel="noopener"><img src="images/reelexamplednc.jpg" alt="Instagram Reel DNC coverage" loading="lazy"></a>
+                            <a href="https://www.instagram.com/p/DGW78JCOmV1/" target="_blank" rel="noopener"><img src="images/explainergrid.jpg" alt="DePaulia explainer Instagram post" width="400" height="400" loading="lazy"></a>
+                            <a href="https://www.instagram.com/p/DPjQOjyDAo3/" target="_blank" rel="noopener"><img src="images/knowyourrightsgrid.jpg" alt="Know Your Rights Instagram post" width="400" height="400" loading="lazy"></a>
+                            <a href="https://www.instagram.com/p/DCfTi1Ppc2B/" target="_blank" rel="noopener"><img src="images/featuregrid.jpg" alt="DePaulia feature story Instagram post" width="400" height="400" loading="lazy"></a>
+                            <a href="https://www.instagram.com/reel/DE5qkbFJATd/" target="_blank" rel="noopener"><img src="images/reelexamplecta.jpg" alt="Instagram Reel with call to action" width="400" height="400" loading="lazy"></a>
+                            <a href="https://www.instagram.com/reel/C__HRT3P8zy/" target="_blank" rel="noopener"><img src="images/reelexampleprojest.jpg" alt="Instagram Reel project example" width="400" height="400" loading="lazy"></a>
+                            <a href="https://www.instagram.com/reel/C-34HW5PrbS/" target="_blank" rel="noopener"><img src="images/reelexamplednc.jpg" alt="Instagram Reel DNC coverage" width="400" height="400" loading="lazy"></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════ RESUME ══════════════ -->
+        <section class="panel" id="panel-resume" role="tabpanel" aria-labelledby="tab-resume" tabindex="0">
+            <div class="wrap">
+                <div class="resume-header">
+                    <div>
+                        <h2>Resume</h2>
+                        <p>Experience, education, skills and recognition.</p>
+                        <a class="btn" href="jake-cox-resume.pdf" download>Download resume (PDF)</a>
+                    </div>
+                    <img class="resume-photo" src="images/profile.jpg" alt="Jake Cox" width="104" height="104">
+                </div>
+
+                <div class="resume-grid">
+                    <div class="resume-col">
+                        <div>
+                            <h3 class="sec-head">Experience</h3>
+
+                            <div class="job">
+                                <div class="job-head"><h4 class="job-title">News Product Manager</h4><span class="job-dates">Jun 2026 to present</span></div>
+                                <div class="job-org">Michigan Public, through The Magpie Project. Remote.</div>
+                                <ul>
+                                    <li>Manage product across five areas: audio and podcasts; personalization and recommendations; analytics; newsletters; and games</li>
+                                    <li>Led most of the user research for an unannounced game built with an outside dev partner, and turned the findings into takeaways for the product team</li>
+                                    <li>Built newsletter and Apple News infrastructure: a redesigned Mailchimp template, production SOPs, a UTM taxonomy, and ANF article templates with custom CTAs</li>
+                                    <li>Turn analytics and stakeholder meetings into scoped, owned work in Notion, and run the tracking that keeps launch dates honest</li>
+                                </ul>
+                            </div>
+
+                            <div class="job">
+                                <div class="job-head"><h4 class="job-title">Newsletter Intern</h4><span class="job-dates">Apr 2025 to May 2026</span></div>
+                                <div class="job-org">Block Club Chicago. Chicago, Ill.</div>
+                                <ul>
+                                    <li>Launched and grew a WhatsApp broadcast channel to 3,200+ subscribers in six weeks, delivering verified immigration coverage to communities most affected by federal enforcement; written up by the Knight Foundation, American Journalism Project and Medill Solutions Journalism Hub, cited by Reuters, and presented to the Newspack community</li>
+                                    <li>Produced daily newsletters across lists totaling 130,000+ subscribers (3,000 to 90,000 per send), making real-time story selection and placement calls against deadline</li>
+                                    <li>Analyzed open rates, CTR and CTOR across daily sends to A/B test subject lines and optimize story hierarchy for engagement lift</li>
+                                    <li>Used Chartbeat daily for engagement tracking and story selection</li>
+                                    <li>Worked with the revenue team on donor emails built around personal stories and on ad emails sold to advertisers</li>
+                                    <li>Reported breaking news and enterprise features across civic, arts, LGBTQ+ and weather beats for a nonprofit hyperlocal newsroom</li>
+                                    <li>Worked with editors and reporters to rework editions as coverage priorities shifted during the day</li>
+                                </ul>
+                            </div>
+
+                            <div class="job">
+                                <div class="job-head"><h4 class="job-title">Producer and Lead Data Analyst</h4><span class="job-dates">Mar 2025 to Nov 2025</span></div>
+                                <div class="job-org">DePaul Center for Journalism Integrity and Excellence and NBC5 Chicago. Chicago, Ill.</div>
+                                <ul>
+                                    <li>Led data analysis, fact-checking and structural editing on two long-form investigations produced with NBC5 Chicago's I-Team</li>
+                                    <li>Built a Python web scraper to extract Illinois GA witness slips, surfacing opposition patterns that powered an investigative report</li>
+                                    <li>Developed an interactive news app showing bettors what Illinois' per-wager sports-betting tax could cost them if sportsbooks passed it on</li>
+                                    <li>Packaged investigative findings for multi-platform publication and produced vertical video for Facebook, Instagram and YouTube</li>
+                                    <li>Both reports won 2026 Chicago Headline Club Peter Lisagor Awards and earned 2026 Chicago/Midwest Emmy nominations; the homeschool report won a Crystal Pillar for public service reporting</li>
+                                </ul>
+                            </div>
+
+                            <div class="job">
+                                <div class="job-head"><h4 class="job-title">Digital Managing Editor</h4><span class="job-dates">Mar 2024 to Oct 2025</span></div>
+                                <div class="job-org">The DePaulia. Chicago, Ill.</div>
+                                <ul>
+                                    <li>Grew Instagram followers 53% (+2,000) and drove 250K+ organic views by rebuilding the social strategy around short-form video, platform-native formats and a repeatable content workflow that outlasted my tenure</li>
+                                    <li>Directed live breaking news coverage, including a student encampment live blog that won a 2025 Peter Lisagor Award for Deadline Writing in the professional Small Newsroom category</li>
+                                    <li>Led a digital staff of 25 across web, social and newsletter, setting editorial priorities and coaching reporters on deadline</li>
+                                    <li>Relaunched the paper's newsletter, social and search strategy, including moving the newsletter from Substack to ActiveCampaign; grew newsletter subscribers to nearly 1,000</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="sec-head">Selected projects</h3>
+                            <div class="entry">
+                                <div class="entry-title">Sports-Betting Tax News App <span class="entry-stack">in HTML and JavaScript</span></div>
+                                <div class="entry-sub">Interactive calculator built to accompany NBC5 Chicago's investigation of Illinois' new per-wager sports-betting tax. <a href="#work/betting">Case study</a>, <a href="https://github.com/jakec04/wagering-tax-app" target="_blank" rel="noopener">repo</a></div>
+                            </div>
+                            <div class="entry">
+                                <div class="entry-title">Illinois General Assembly Web Scraper <span class="entry-stack">in Python and BeautifulSoup</span></div>
+                                <div class="entry-sub">Automated tool collecting public testimony data from the Illinois legislature to measure opposition to a homeschooling regulation bill. The report won a 2026 Peter Lisagor Award for education reporting and a Crystal Pillar for public service reporting at the 2026 Chicago/Midwest Emmy Awards. <a href="https://www.nbcchicago.com/news/local/parents-lawmakers-battle-over-illinois-homeschool-act-what-to-know/3760545/" target="_blank" rel="noopener">Reporting</a>, <a href="https://github.com/jakec04/ILGA_scraper" target="_blank" rel="noopener">scraper</a></div>
+                            </div>
+                            <div class="entry">
+                                <div class="entry-title">Michigan Public Wikidata Record <span class="entry-stack">structured data</span></div>
+                                <div class="entry-sub">Audited and updated the station's Wikidata item (FCC facility IDs, call signs, website qualifiers, Google Knowledge Graph ID) to bring it in line with structured-data best practices. <a href="https://www.wikidata.org/wiki/Q16974093" target="_blank" rel="noopener">Q16974093</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-col">
+                        <div>
+                            <h3 class="sec-head">Recognition</h3>
+                            <div class="award">
+                                <h4>Chicago/Midwest Emmy Awards, 2026</h4>
+                                <div class="award-source">NATAS Chicago/Midwest</div>
+                                <ul>
+                                    <li>Crystal Pillar Award, Public Service Reporting</li>
+                                    <li><span class="hm">Nomination:</span> College Student Production: Sports</li>
+                                </ul>
+                            </div>
+                            <div class="award">
+                                <h4>Peter Lisagor Awards</h4>
+                                <div class="award-source">Chicago Headline Club</div>
+                                <ul>
+                                    <li>Deadline Writing (Small Newsroom), 2025</li>
+                                    <li>Best Education Reporting (Student), 2026</li>
+                                    <li>Best Politics &amp; Government Reporting (Student), 2026</li>
+                                </ul>
+                            </div>
+                            <div class="award">
+                                <h4>Associated Collegiate Press</h4>
+                                <ul>
+                                    <li>4th Place, Best News Story</li>
+                                    <li>6th Place, Best of Show Website</li>
+                                    <li><span class="hm">Honorable mention:</span> Breaking News Story</li>
+                                    <li><span class="hm">Honorable mention:</span> Best In-Depth News Story</li>
+                                    <li><span class="hm">Honorable mention:</span> Social Media Reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="sec-head">Education</h3>
+                            <div class="entry">
+                                <div class="entry-title">DePaul University, B.A. in Journalism (cum laude)</div>
+                                <div class="entry-sub">Minor in English Literature, certificate in Geographic Information Systems. Graduated June 2026. Coursework in data journalism, GIS and spatial analysis, media law and investigative reporting.</div>
+                            </div>
+                            <div class="entry">
+                                <div class="entry-title">DePaul FOIA Fellows Bootcamp</div>
+                                <div class="entry-sub">Public records skills, FOIA strategy, request tracking and follow-up reporting</div>
+                            </div>
+                            <div class="entry">
+                                <div class="entry-title">Professional memberships</div>
+                                <div class="entry-sub">Investigative Reporters and Editors; Chicago Headline Club, SPJ; Online News Association</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="sec-head">Skills</h3>
+                            <dl class="skills">
+                                <div><dt>Product management</dt><dd>Roadmaps, scoping, launch tracking, backlog triage, Notion</dd></div>
+                                <div><dt>Working with vendors</dt><dd>Scoping with outside dev shops, QA, go-live, data access reviews</dd></div>
+                                <div><dt>Analytics and measurement</dt><dd>GA4 event design, UTM taxonomy, Chartbeat, Triton, dashboard specs</dd></div>
+                                <div><dt>Audience and lifecycle</dt><dd>Newsletters, Apple News and news aggregators, retention loops, A/B testing</dd></div>
+                                <div><dt>Email and CRM</dt><dd>Mailchimp, HTML email, ESP migration, deliverability, list health</dd></div>
+                                <div><dt>Privacy and consent</dt><dd>CCPA requirements, consent flows, first-party data handling</dd></div>
+                                <div><dt>Programming and web</dt><dd>HTML/CSS, Python, R, GitHub, Apple News Format JSON</dd></div>
+                                <div><dt>Data analysis</dt><dd>Cleaning, visualization, Datawrapper, Flourish</dd></div>
+                                <div><dt>Editorial</dt><dd>Breaking news, enterprise, AP style, FOIA, live updates</dd></div>
+                                <div><dt>GIS and mapping</dt><dd>ArcGIS Pro, Leaflet.js, spatial analysis</dd></div>
+                            </dl>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="site-footer-full">
-                <span>&copy; 2026 Jake Cox</span>
-                <div class="footer-links">
-                    <a href="mailto:coxja2204@gmail.com">email</a>
-                    <a href="https://www.linkedin.com/in/jakercox/">linkedin</a>
-                </div>
-            </div>
-        </div>
+        </section>
 
-    </div>
+        <footer class="site-footer">
+            <span>&copy; 2026 Jake Cox. Lake Michigan contours: NOAA NCEI. Shoreline: &copy; OpenStreetMap contributors.</span>
+            <nav aria-label="Footer">
+                <a href="mailto:coxja2204@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/jakercox/">LinkedIn</a>
+                <a href="https://github.com/jakec04">GitHub</a>
+            </nav>
+        </footer>
+    </main>
 </div>
 
 <script>
-    const tabs = Array.from(document.querySelectorAll('.tab'));
+    const tabs = Array.from(document.querySelectorAll('.site-nav [role="tab"]'));
     const panels = document.querySelectorAll('.panel');
     const audItems = Array.from(document.querySelectorAll('.aud-item'));
     const audPanels = document.querySelectorAll('.aud-detail-panel');
+    const narrow = window.matchMedia('(max-width: 900px)');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function selectTab(name) {
         tabs.forEach(t => {
             const on = t.dataset.panel === name;
-            t.classList.toggle('active', on);
             t.setAttribute('aria-selected', on);
             t.tabIndex = on ? 0 : -1;
         });
@@ -1388,16 +1113,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     function selectAud(name) {
         audItems.forEach(i => {
             const on = i.dataset.aud === name;
-            i.classList.toggle('selected', on);
             i.setAttribute('aria-selected', on);
             i.tabIndex = on ? 0 : -1;
         });
-        audPanels.forEach(p => p.classList.remove('active'));
-        const current = audItems.find(i => i.dataset.aud === name);
-        if (current) current.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-        const target = document.getElementById('aud-' + name);
-        if (target) {
-            target.classList.add('active');
+        audPanels.forEach(p => p.classList.toggle('active', p.id === 'aud-' + name));
+    }
+
+    // On a phone the list sits above the message, so jump down to what opened.
+    function revealDetail() {
+        if (narrow.matches) {
+            document.getElementById('work-detail').scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' });
         }
     }
 
@@ -1408,8 +1133,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (tab === 'audience') tab = 'work';
         const name = ['home', 'resume', 'work'].includes(tab) ? tab : 'home';
         selectTab(name);
+        window.scrollTo(0, 0);
         if (name === 'work' && sub && document.getElementById('aud-' + sub)) {
             selectAud(sub);
+            revealDetail();
         }
     }
     applyHash();
@@ -1426,10 +1153,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         item.addEventListener('click', () => {
             selectAud(item.dataset.aud);
             history.replaceState(null, '', '#work/' + item.dataset.aud);
+            revealDetail();
         });
     });
 
-    // In-page links to a case study (home featured card, resume projects)
+    // In-page links to a case study (home rows, resume projects)
     document.querySelectorAll('a[href^="#work/"]').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
@@ -1437,20 +1165,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
     });
 
-    function addArrowNav(items, prevKey, nextKey) {
+    function addArrowNav(items, prevKeys, nextKeys, activate) {
         items.forEach((item, i) => {
             item.addEventListener('keydown', e => {
-                const step = nextKey.includes(e.key) ? 1 : prevKey.includes(e.key) ? -1 : 0;
+                const step = nextKeys.includes(e.key) ? 1 : prevKeys.includes(e.key) ? -1 : 0;
                 if (!step) return;
                 e.preventDefault();
                 const next = items[(i + step + items.length) % items.length];
                 next.focus();
-                next.click();
+                activate(next);
             });
         });
     }
-    addArrowNav(tabs, ['ArrowLeft'], ['ArrowRight']);
-    addArrowNav(audItems, ['ArrowUp', 'ArrowLeft'], ['ArrowDown', 'ArrowRight']);
+    addArrowNav(tabs, ['ArrowLeft'], ['ArrowRight'], t => {
+        selectTab(t.dataset.panel);
+        history.replaceState(null, '', '#' + t.dataset.panel);
+    });
+    addArrowNav(audItems, ['ArrowUp'], ['ArrowDown'], i => {
+        selectAud(i.dataset.aud);
+        history.replaceState(null, '', '#work/' + i.dataset.aud);
+    });
+    // Lake backdrop: sit the Chicago star on the drawn shoreline, turned to follow it.
+    // Hover a contour to light up that depth; hover the star for the flag's four.
+    (function lake() {
+        const bg = document.querySelector('.lake-bg');
+        if (!bg) return;
+        const svg = bg.querySelector('svg');
+        const shore = svg.querySelector('.shore');
+        const chi = svg.querySelector('.chi');
+
+        const [ax, ay] = chi.getAttribute('transform').match(/[-\d.]+/g).map(Number);
+        const len = shore.getTotalLength();
+        let best = 0, bestD = Infinity;
+        for (let l = 0; l <= len; l += 1) {
+            const p = shore.getPointAtLength(l);
+            const d = (p.x - ax) ** 2 + (p.y - ay) ** 2;
+            if (d < bestD) { bestD = d; best = l; }
+        }
+        const p = shore.getPointAtLength(best);
+        const a = shore.getPointAtLength(Math.max(0, best - 6));
+        const b = shore.getPointAtLength(Math.min(len, best + 6));
+        const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI + 90;
+        chi.setAttribute('transform', `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
+        chi.style.setProperty('--a', angle.toFixed(1) + 'deg');
+
+        svg.querySelectorAll('.hits use').forEach(u => {
+            const line = svg.querySelector('#iso-' + u.dataset.depth);
+            u.addEventListener('mouseenter', () => line.classList.add('on'));
+            u.addEventListener('mouseleave', () => line.classList.remove('on'));
+        });
+        const hit = chi.querySelector('.chi-hit');
+        hit.addEventListener('mouseenter', () => chi.classList.add('on'));
+        hit.addEventListener('mouseleave', () => chi.classList.remove('on'));
+    })();
 </script>
 </body>
 </html>
